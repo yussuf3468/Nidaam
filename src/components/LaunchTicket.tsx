@@ -3,6 +3,7 @@ import { Activity } from 'lucide-react';
 import { site, type LaunchStageStatus } from '../config/site';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 import { cn } from '../lib/cn';
+import { LogoMark, wordmark } from './brand/Logo';
 import { StatusPill, ToneBadge, statusColors, toneValue } from './ui/Badge';
 
 const COUNT_DURATION_MS = 1600;
@@ -61,7 +62,7 @@ interface LaunchTicketProps {
 }
 
 /**
- * The launch "ticket": a black stub carrying the NSC logo, a dashed tear with
+ * The launch "ticket": a black stub carrying the logo, a dashed tear with
  * notches, then build progress and the stage pills.
  */
 export function LaunchTicket({ className }: LaunchTicketProps) {
@@ -80,13 +81,13 @@ export function LaunchTicket({ className }: LaunchTicketProps) {
     <div className={cn('rounded-xl bg-card text-card-foreground', className)}>
       {/* Stub */}
       <div className="relative flex flex-col gap-6 rounded-t-xl bg-neutral-950 p-5 text-white sm:flex-row sm:items-end sm:justify-between sm:p-6 dark:bg-black">
-        <img
-          src="/logo-lockup-white.svg"
-          alt={site.name}
-          width={1101}
-          height={463}
-          className="h-16 w-auto self-start sm:h-18"
-        />
+        <div className="flex items-center gap-3.5 self-start">
+          <LogoMark className="h-14 sm:h-16" />
+          <div className="flex flex-col">
+            <span className="text-2xl font-bold leading-[1.05] tracking-tight sm:text-[1.75rem]">{wordmark.first}</span>
+            <span className="text-base font-medium leading-[1.1] text-white/55 sm:text-lg">{wordmark.rest}</span>
+          </div>
+        </div>
         <dl className="grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-1 sm:text-right">
           <div>
             <dt className="text-xs text-white/55">Now building</dt>
@@ -94,7 +95,9 @@ export function LaunchTicket({ className }: LaunchTicketProps) {
           </div>
           <div>
             <dt className="text-xs text-white/55">Based in</dt>
-            <dd className="mt-0.5 text-[15px] font-semibold">{site.contact.country}</dd>
+            <dd className="mt-0.5 text-[15px] font-semibold">
+              {site.contact.city}, {site.contact.country}
+            </dd>
           </div>
         </dl>
         <span aria-hidden="true" className={cn(notch, '-left-2')} />

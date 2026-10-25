@@ -14,11 +14,10 @@ export interface LaunchStage {
 }
 
 export const site = {
-  name: 'Nidaam Software Company',
+  name: 'Nidaam Solutions',
   shortName: 'Nidaam',
-  abbreviation: 'NSC',
   description:
-    'Nidaam Software Company is creating powerful digital solutions that help businesses operate, grow, and innovate. Our platform and services are coming soon.',
+    'Nidaam Solutions is creating powerful digital products that help businesses operate, grow, and innovate. Our platform and services are coming soon.',
   copyrightYear: 2026,
 
   contact: {
@@ -26,7 +25,8 @@ export const site = {
     /** International format, digits only after the "+". Also drives the WhatsApp link. */
     phone: '+254722261776',
     phoneDisplay: '+254 722 261 776',
-    address: 'Hodo Souk, 2nd Floor, Captain Murithi Rd',
+    address: 'Hodo Souk, Captain Mungai Street, Eastleigh',
+    city: 'Nairobi',
     country: 'Kenya',
   },
 

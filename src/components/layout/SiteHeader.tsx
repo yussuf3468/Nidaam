@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { site } from '../../config/site';
 import { setTheme, useTheme } from '../../hooks/useTheme';
-import { LogoMark } from '../brand/Logo';
+import { Logo } from '../brand/Logo';
 import { Button, ButtonLink } from '../ui/Button';
 import { Container } from '../ui/Container';
 
@@ -30,7 +30,7 @@ function KenyaClock() {
 
   return (
     <span className="hidden items-baseline gap-1.5 text-base font-medium tabular-nums lg:inline-flex">
-      <span className="text-[13px] text-muted-foreground">{site.contact.country}</span>
+      <span className="text-[13px] text-muted-foreground">{site.contact.city}</span>
       <time dateTime={now.toISOString()}>{kenyaTime.format(now)}</time>
     </span>
   );
@@ -46,13 +46,9 @@ export function SiteHeader() {
         <a
           href="#home"
           aria-label={`${site.name}, back to top`}
-          className="inline-flex h-9 items-center gap-2 rounded-lg bg-black/5 pl-1 pr-3 outline-none transition-colors hover:bg-black/8 focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-white/10 dark:hover:bg-white/15"
+          className="inline-flex h-11 items-center rounded-lg bg-black/5 pl-2 pr-3.5 outline-none transition-colors hover:bg-black/8 focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-white/10 dark:hover:bg-white/15"
         >
-          <LogoMark />
-          <span className="text-[15px] font-semibold tracking-tight">
-            {site.shortName}
-            <span className="hidden font-medium text-muted-foreground sm:inline"> Software Company</span>
-          </span>
+          <Logo />
         </a>
 
         <div className="flex items-center gap-1">

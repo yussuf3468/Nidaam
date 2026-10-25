@@ -1,6 +1,6 @@
-# Nidaam Software Company — launch page
+# Nidaam Solutions — launch page
 
-The "coming soon" site for **Nidaam Software Company (NSC)**. Built with React 19, TypeScript, Vite and Tailwind CSS v4. Icons come from Lucide. There are no other runtime dependencies.
+The "coming soon" site for **Nidaam Solutions** (Nairobi, Kenya). Built with React 19, TypeScript, Vite and Tailwind CSS v4. Icons come from Lucide. There are no other runtime dependencies.
 
 ```bash
 npm install
@@ -16,10 +16,8 @@ npm run preview    # serve dist/ locally
 ```
 index.html                     SEO tags, Open Graph, JSON-LD, fonts, no-flash theme script
 public/
-  logo.svg                     Original logo (black square, NSC + "Nidaam software company")
-  logo-mark.svg                NSC badge used in the header and footer
-  logo-lockup-white.svg        White NSC lockup used on the launch ticket
-  favicon.svg                  Browser tab icon (the "N")
+  logo.svg                     The Nidaam petal mark (header, footer, launch ticket)
+  favicon.svg                  Browser tab icon (the same mark on a square canvas)
   apple-touch-icon.png         iOS home-screen icon, 180×180
   og-image.png                 Link preview image, 1200×630
 src/
@@ -48,7 +46,8 @@ contact: {
   email: 'info@nidaam.co.ke',
   phone: '+254722261776',            // also builds the WhatsApp link (wa.me)
   phoneDisplay: '+254 722 261 776',
-  address: 'Hodo Souk, 2nd Floor, Captain Murithi Rd',
+  address: 'Hodo Souk, Captain Mungai Street, Eastleigh',
+  city: 'Nairobi',
   country: 'Kenya',
 },
 social: {
@@ -59,18 +58,17 @@ social: {
 },
 ```
 
-Then update the copies in `index.html`: the canonical URL, `og:url`, `og:image`, the JSON-LD block (`url`, `email`, `telephone`, `address`, `sameAs`) and the `<noscript>` email. Search engines and link previews read these without running JavaScript, so they can't be generated at runtime.
+Then update the copies in `index.html`: the canonical URL, `og:url`, `og:image`, the JSON-LD block (`url`, `email`, `telephone`, `address`, `foundingDate`, `sameAs`) and the `<noscript>` email. Search engines and link previews read these without running JavaScript, so they can't be generated at runtime.
 
 **To add LinkedIn:** put the company page URL in `social.linkedin` and add it to `sameAs` in `index.html`.
 
 ### Logo
 
-Replace the files in `public/` and keep the same names:
+The wordmark ("Nidaam" over "Solutions") is real text set next to the mark and built from `site.name`, so it turns white in dark mode on its own. To change the artwork, replace these files in `public/` and keep the same names:
 
 | File | Used for | Notes |
 |---|---|---|
-| `logo-mark.svg` | Header and footer badge | 56×32 ratio, rounded black badge |
-| `logo-lockup-white.svg` | Launch ticket (on black) | White artwork, transparent background |
+| `logo.svg` | Header, footer, launch ticket | Mark only, no text; must read on light and dark |
 | `favicon.svg` | Browser tab | Square |
 | `apple-touch-icon.png` | iOS home screen, JSON-LD logo | 180×180 PNG |
 | `og-image.png` | WhatsApp, LinkedIn and X link previews | 1200×630 PNG |

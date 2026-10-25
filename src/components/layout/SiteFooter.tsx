@@ -27,13 +27,13 @@ export function SiteFooter() {
       <Container>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-start gap-3">
-            <LogoMark className="h-9 rounded-[9px]" />
+            <LogoMark className="h-10" />
             <div>
               <div className="text-[15px] font-semibold tracking-tight">{site.name}</div>
               <address className="mt-0.5 flex items-start gap-1.5 text-[13px] not-italic text-muted-foreground">
                 <MapPin className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
                 <span>
-                  {site.contact.address}, {site.contact.country}
+                  {site.contact.address}, {site.contact.city}, {site.contact.country}
                 </span>
               </address>
             </div>
