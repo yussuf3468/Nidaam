@@ -50,7 +50,6 @@ export default async function CaseStudyPage({ params }: Props) {
   return (
     <>
       <section className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-40">
-        <div className="bg-blueprint pointer-events-none absolute inset-0 -z-10" aria-hidden />
         <div className="container-site">
           <div className="animate-fade-up">
             <Breadcrumbs
@@ -66,10 +65,10 @@ export default async function CaseStudyPage({ params }: Props) {
                 <Eyebrow>{industry?.name}</Eyebrow>
                 {site.labelSampleContent && <SampleLabel />}
               </div>
-              <h1 className="mt-6 animate-fade-up text-4xl leading-[1.02] font-bold tracking-[-0.045em] text-balance [animation-delay:120ms] sm:text-6xl lg:text-7xl">
+              <h1 className="mt-6 animate-fade-up text-[clamp(2rem,3vw,3.125rem)] leading-[1.1] font-bold tracking-[-0.035em] text-balance [animation-delay:120ms]">
                 {study.title}
               </h1>
-              <p className="mt-6 max-w-2xl animate-fade-up text-lg leading-relaxed text-muted-foreground [animation-delay:200ms] sm:text-xl">
+              <p className="mt-6 max-w-2xl animate-fade-up text-base leading-relaxed text-muted-foreground [animation-delay:200ms] sm:text-lg">
                 {study.summary}
               </p>
             </div>
@@ -121,7 +120,7 @@ export default async function CaseStudyPage({ params }: Props) {
             {study.metrics.map((m) => (
               <div key={m.label} className="flex flex-col bg-card p-7 sm:p-9">
                 <dt className="order-2 mt-3 text-sm leading-relaxed text-muted-foreground">{m.label}</dt>
-                <dd className="text-5xl font-bold tracking-[-0.04em] sm:text-6xl">
+                <dd className="text-4xl font-bold tracking-[-0.03em] sm:text-5xl">
                   <Counter value={m.value} decimals={m.decimals} prefix={m.prefix} suffix={m.suffix} />
                 </dd>
               </div>
@@ -139,10 +138,10 @@ export default async function CaseStudyPage({ params }: Props) {
           ].map(({ label, block, Icon, tone }, i) => (
             <Reveal key={label} className="grid gap-8 rounded-3xl border border-border bg-card p-8 sm:p-12 lg:grid-cols-12 lg:gap-10">
               <div className="lg:col-span-4">
-                <Eyebrow index={pad2(i + 1)}>{label}</Eyebrow>
+                <Eyebrow>{label}</Eyebrow>
               </div>
               <div className="lg:col-span-8">
-                <p className="text-2xl leading-snug font-medium tracking-tight text-pretty sm:text-3xl">{block.intro}</p>
+                <p className="text-xl leading-snug font-medium tracking-tight text-pretty sm:text-2xl">{block.intro}</p>
                 <ul className="mt-8 grid gap-4 sm:grid-cols-2">
                   {block.points.map((p) => (
                     <li key={p} className="flex gap-3 leading-relaxed">
@@ -156,9 +155,9 @@ export default async function CaseStudyPage({ params }: Props) {
           ))}
           <Reveal className="ink grid gap-8 rounded-3xl p-8 sm:p-12 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-4">
-              <Eyebrow index="03">The outcome</Eyebrow>
+              <Eyebrow>The outcome</Eyebrow>
             </div>
-            <p className="text-2xl leading-snug font-medium tracking-tight text-pretty sm:text-3xl lg:col-span-8">{study.outcome}</p>
+            <p className="text-xl leading-snug font-medium tracking-tight text-pretty sm:text-2xl lg:col-span-8">{study.outcome}</p>
           </Reveal>
         </div>
       </Section>
@@ -167,7 +166,7 @@ export default async function CaseStudyPage({ params }: Props) {
       <Section className="border-t border-border bg-card/40">
         <div className="container-site grid gap-10 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
-            <Eyebrow index="04">Timeline · {study.timeline}</Eyebrow>
+            <Eyebrow>Timeline · {study.timeline}</Eyebrow>
             <div className="mt-8 flex h-3 overflow-hidden rounded-full bg-border" aria-hidden>
               {study.phases.map((p, i) => (
                 <span
@@ -181,7 +180,6 @@ export default async function CaseStudyPage({ params }: Props) {
               {study.phases.map((p, i) => (
                 <li key={p.name} className="flex items-center justify-between gap-6 py-4">
                   <span className="flex items-center gap-4">
-                    <span className="font-mono text-xs text-faint">{pad2(i + 1)}</span>
                     <span className="font-semibold">{p.name}</span>
                   </span>
                   <span className="font-mono text-sm text-muted-foreground">{p.duration}</span>
@@ -211,7 +209,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* Screenshot placeholders */}
       <Section>
         <div className="container-site">
-          <Eyebrow index="05">Screens</Eyebrow>
+          <Eyebrow>Screens</Eyebrow>
           <RevealGroup className="mt-8 grid gap-4 md:grid-cols-3">
             {['Dashboard', 'Mobile app', 'Reports'].map((label) => (
               <RevealItem
@@ -232,7 +230,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <div className="container-site">
             <Reveal>
               <figure className="mx-auto max-w-4xl text-center">
-                <blockquote className="text-3xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl">“{quote.quote}”</blockquote>
+                <blockquote className="text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl">“{quote.quote}”</blockquote>
                 <figcaption className="mt-8 flex flex-wrap items-center justify-center gap-3 text-muted-foreground">
                   <span>
                     <span className="font-semibold text-foreground">{quote.role}</span>, {quote.organisation}
@@ -250,7 +248,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <Link href={`/case-studies/${next.slug}`} className="group flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <span>
               <span className="eyebrow">Next case study</span>
-              <span className="mt-3 block max-w-3xl text-3xl leading-tight font-bold tracking-tight text-balance transition-colors group-hover:text-brand-ink sm:text-4xl">
+              <span className="mt-3 block max-w-3xl text-2xl leading-tight font-bold tracking-tight text-balance transition-colors group-hover:text-brand-ink sm:text-3xl">
                 {next.title}
               </span>
             </span>

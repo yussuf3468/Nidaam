@@ -21,7 +21,6 @@ export function CtaBand({
     <section className="container-site py-6 lg:py-10">
       <Reveal>
         <div className="ink relative isolate overflow-hidden rounded-[2rem] px-6 py-16 sm:px-12 sm:py-20 lg:px-20 lg:py-28">
-          <div className="bg-blueprint pointer-events-none absolute inset-0 -z-10 opacity-70" aria-hidden />
           <div
             className="pointer-events-none absolute -top-40 -right-40 -z-10 size-144 rounded-full bg-brand/20 blur-[120px]"
             aria-hidden
@@ -34,7 +33,7 @@ export function CtaBand({
                 <span className="size-1.5 rounded-full bg-brand" aria-hidden />
                 Start a project
               </p>
-              <h2 className="mt-6 text-4xl leading-[1.02] font-bold tracking-[-0.04em] text-balance sm:text-5xl lg:text-7xl">{title}</h2>
+              <h2 className="mt-6 text-[clamp(2.25rem,4.4vw,4.5rem)] leading-[1.04] font-bold tracking-[-0.035em] text-balance">{title}</h2>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">{description}</p>
             </div>
             <div className="flex flex-col gap-3 lg:col-span-4 lg:items-end">

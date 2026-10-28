@@ -16,17 +16,15 @@ const stats = [
 export function ManagedServices() {
   return (
     <section id="managed-services" className="ink relative isolate overflow-hidden py-16 sm:py-20 lg:py-28">
-      <div className="bg-blueprint pointer-events-none absolute inset-0 -z-10 opacity-60" aria-hidden />
-      <div className="pointer-events-none absolute -bottom-60 -left-40 -z-10 size-176 rounded-full bg-brand/15 blur-[140px]" aria-hidden />
 
       <div className="container-site">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-5">
-            <Eyebrow index="08">Managed software services</Eyebrow>
-            <h2 className="mt-5 text-4xl leading-[1.05] font-bold tracking-[-0.035em] text-balance sm:text-5xl lg:text-6xl">
+            <Eyebrow>Managed software services</Eyebrow>
+            <h2 className="mt-5 text-[clamp(1.75rem,2.5vw,2.5rem)] leading-[1.15] font-bold tracking-[-0.03em] text-balance">
               Launch is day one. We stay for the years after.
             </h2>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">{flagshipService.summary}</p>
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground">{flagshipService.summary}</p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Button asChild size="lg">
                 <Link href={`/services/${flagshipService.slug}`}>
@@ -53,7 +51,7 @@ export function ManagedServices() {
           {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col bg-background p-7 sm:p-8">
               <dt className="order-2 mt-3 block text-sm leading-relaxed text-muted-foreground">{stat.label}</dt>
-              <dd className="text-5xl font-bold tracking-[-0.04em] sm:text-6xl">
+              <dd className="text-4xl font-bold tracking-[-0.03em] sm:text-5xl">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </dd>
             </div>

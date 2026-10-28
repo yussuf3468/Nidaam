@@ -5,13 +5,13 @@ import { m, useScroll, useSpring } from 'motion/react';
 import { icons } from '@/components/icons';
 import { Eyebrow } from '@/components/sections/section';
 import { processSteps } from '@/content/company';
-import { cn, pad2 } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 /**
  * Delivery process: the heading and current step stay pinned on the left while the
  * steps scroll past on the right, with a progress rail that fills as you read.
  */
-export function Process({ index = '06' }: { index?: string }) {
+export function Process() {
   const listRef = useRef<HTMLOListElement>(null);
   const [active, setActive] = useState(0);
   const { scrollYProgress } = useScroll({ target: listRef, offset: ['start 60%', 'end 60%'] });
@@ -31,27 +31,21 @@ export function Process({ index = '06' }: { index?: string }) {
   }, []);
 
   return (
-    <section id="process" className="py-16 sm:py-20 lg:py-28">
+    <section id="process" className="py-16 sm:py-20 lg:py-24">
       <div className="container-site grid gap-14 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
-            <Eyebrow index={index}>Development process</Eyebrow>
-            <h2 className="mt-5 text-4xl leading-[1.05] font-bold tracking-[-0.035em] text-balance sm:text-5xl lg:text-6xl">
+            <Eyebrow>Development process</Eyebrow>
+            <h2 className="mt-3 text-[clamp(1.75rem,2.5vw,2.5rem)] leading-[1.15] font-bold tracking-[-0.03em] text-balance">
               Eight steps. No surprises.
             </h2>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground">
               Every project follows the same disciplined path, from the first workshop to long-term support. You approve
               each stage before the next begins.
             </p>
-            <div className="mt-12 hidden items-end gap-5 lg:flex" aria-hidden>
-              <span className="text-[7rem] leading-[0.8] font-bold tracking-[-0.06em] text-foreground tabular-nums">
-                {pad2(active + 1)}
-              </span>
-              <span className="pb-2">
-                <span className="block font-mono text-xs text-muted-foreground">/ {pad2(processSteps.length)}</span>
-                <span className="mt-1 block text-lg font-semibold">{processSteps[active].title}</span>
-              </span>
-            </div>
+            <p className="mt-10 hidden text-sm text-muted-foreground lg:block" aria-hidden>
+              Step {active + 1} of {processSteps.length}: <span className="font-semibold text-foreground">{processSteps[active].title}</span>
+            </p>
           </div>
         </div>
 
@@ -74,7 +68,7 @@ export function Process({ index = '06' }: { index?: string }) {
                       on ? 'border-brand text-brand-ink' : 'border-border text-muted-foreground',
                     )}
                   >
-                    <Icon className="size-[18px]" strokeWidth={1.6} aria-hidden />
+                    <Icon className="size-4.5" strokeWidth={1.6} aria-hidden />
                   </span>
                   <div
                     className={cn(
@@ -82,8 +76,8 @@ export function Process({ index = '06' }: { index?: string }) {
                       i === active ? 'border-border-strong bg-card shadow-soft' : 'border-border bg-card/50',
                     )}
                   >
-                    <p className="font-mono text-xs text-muted-foreground">Step {pad2(i + 1)}</p>
-                    <h3 className="mt-2 text-xl font-bold tracking-tight sm:text-2xl">{step.title}</h3>
+                    <p className="text-sm font-semibold text-brand-ink">Step {i + 1}</p>
+                    <h3 className="mt-1 text-lg font-bold tracking-tight sm:text-xl">{step.title}</h3>
                     <p className="mt-2 font-semibold text-foreground/80">{step.body}</p>
                     <p className="mt-2 leading-relaxed text-muted-foreground">{step.detail}</p>
                   </div>

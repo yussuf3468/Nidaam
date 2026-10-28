@@ -13,7 +13,7 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
     <>
       <JsonLd data={breadcrumbSchema(trail)} />
       <nav aria-label="Breadcrumb">
-        <ol className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-muted-foreground">
+        <ol className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
           {trail.map((item, i) => (
             <li key={item.path} className="flex items-center gap-1.5">
               {i > 0 && <ChevronRight className="size-3 text-faint" aria-hidden />}
@@ -48,7 +48,6 @@ type PageHeroProps = {
 export function PageHero({ crumbs, eyebrow, title, description, actions, aside, children }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden pt-28 pb-16 sm:pt-32 lg:pt-40 lg:pb-24">
-      <div className="bg-blueprint pointer-events-none absolute inset-0 -z-10" aria-hidden />
       <div className="container-site">
         <div className="animate-fade-up">
           <Breadcrumbs items={crumbs} />
@@ -58,11 +57,11 @@ export function PageHero({ crumbs, eyebrow, title, description, actions, aside, 
             <div className="animate-fade-up [animation-delay:60ms]">
               <Eyebrow>{eyebrow}</Eyebrow>
             </div>
-            <h1 className="mt-6 animate-fade-up text-5xl leading-[0.98] font-bold tracking-[-0.045em] text-balance [animation-delay:120ms] sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+            <h1 className="mt-6 animate-fade-up text-[clamp(2.125rem,3.3vw,3.375rem)] leading-[1.08] font-bold tracking-[-0.035em] text-balance [animation-delay:120ms]">
               {title}
             </h1>
             {description && (
-              <p className="mt-8 max-w-2xl animate-fade-up text-lg leading-relaxed text-pretty text-muted-foreground [animation-delay:200ms] sm:text-xl">
+              <p className="mt-8 max-w-2xl animate-fade-up text-base leading-relaxed text-pretty text-muted-foreground [animation-delay:200ms] sm:text-lg">
                 {description}
               </p>
             )}

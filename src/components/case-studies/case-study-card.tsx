@@ -14,7 +14,6 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
       className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card transition-[box-shadow,border-color,transform] duration-500 ease-out-expo hover:-translate-y-1 hover:border-border-strong hover:shadow-lift"
     >
       <div className="relative overflow-hidden border-b border-border bg-background/70 px-6 pt-7">
-        <div className="bg-blueprint absolute inset-0 opacity-70" aria-hidden />
         <div className="relative translate-y-2 transition-transform duration-700 ease-out-expo group-hover:translate-y-0 group-hover:scale-[1.015]">
           <MockScreen variant={study.visual} />
         </div>

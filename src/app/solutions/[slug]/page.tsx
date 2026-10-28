@@ -85,7 +85,7 @@ export default async function IndustryPage({ params }: Props) {
       <Section className="border-t border-border">
         <div className="container-site grid gap-4 lg:grid-cols-2">
           <Reveal className="rounded-3xl border border-border bg-card p-8 sm:p-10">
-            <Eyebrow index="01">The problem today</Eyebrow>
+            <Eyebrow>The problem today</Eyebrow>
             <ul className="mt-8 space-y-5">
               {industry.challenges.map((c) => (
                 <li key={c} className="flex gap-4 text-lg leading-relaxed">
@@ -96,7 +96,7 @@ export default async function IndustryPage({ params }: Props) {
             </ul>
           </Reveal>
           <Reveal className="ink rounded-3xl p-8 sm:p-10" delay={0.08}>
-            <Eyebrow index="02">What we build</Eyebrow>
+            <Eyebrow>What we build</Eyebrow>
             <ul className="mt-8 space-y-6">
               {industry.builds.map((b) => (
                 <li key={b.title} className="flex gap-4">
@@ -114,11 +114,11 @@ export default async function IndustryPage({ params }: Props) {
 
       <Section className="bg-card/40">
         <div className="container-site">
-          <SectionHeading index="03" eyebrow="Services involved" title={`How we deliver for ${industry.name.toLowerCase()}.`} />
+          <SectionHeading eyebrow="Services involved" title={`How we deliver for ${industry.name.toLowerCase()}.`} />
           <RevealGroup className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {relatedServices.map((s) => (
               <RevealItem key={s.slug}>
-                <ServiceCard service={s} index={services.indexOf(s) + 1} />
+                <ServiceCard service={s} />
               </RevealItem>
             ))}
           </RevealGroup>
@@ -129,9 +129,9 @@ export default async function IndustryPage({ params }: Props) {
         <Section>
           <div className="container-site grid gap-10 lg:grid-cols-12">
             <Reveal className="lg:col-span-5">
-              <Eyebrow index="04">Example engagement</Eyebrow>
-              <h2 className="mt-5 text-4xl leading-[1.05] font-bold tracking-[-0.035em] text-balance sm:text-5xl">{study.title}</h2>
-              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{study.summary}</p>
+              <Eyebrow>Example engagement</Eyebrow>
+              <h2 className="mt-5 text-[clamp(1.75rem,2.5vw,2.5rem)] leading-[1.15] font-bold tracking-[-0.03em] text-balance">{study.title}</h2>
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground">{study.summary}</p>
             </Reveal>
             <Reveal className="lg:col-span-7" delay={0.08}>
               <CaseStudyCard study={study} />
@@ -146,12 +146,12 @@ export default async function IndustryPage({ params }: Props) {
           <RevealGroup className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {others.map((other) => (
               <RevealItem key={other.slug}>
-                <IndustryCard industry={other} index={industries.indexOf(other) + 1} />
+                <IndustryCard industry={other} />
               </RevealItem>
             ))}
           </RevealGroup>
-          <p className="mt-8 font-mono text-xs text-muted-foreground">
-            {pad2(industries.length)} industries ·{' '}
+          <p className="mt-8 text-sm text-muted-foreground">
+            {industries.length} industries ·{' '}
             <Link href="/solutions" className="text-brand-ink underline-offset-4 hover:underline">
               view all
             </Link>

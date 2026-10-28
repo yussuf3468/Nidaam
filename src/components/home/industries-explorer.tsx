@@ -34,7 +34,6 @@ export function IndustriesExplorer({ industries }: { industries: Industry[] }) {
                 'lg:text-muted-foreground lg:hover:text-foreground',
               )}
             >
-              <span className="hidden font-mono text-xs text-faint lg:inline">{pad2(i + 1)}</span>
               <Icon className="size-4 lg:size-5" strokeWidth={1.6} aria-hidden />
               <span className="flex-1">{industry.name}</span>
               <ArrowRight
@@ -65,8 +64,8 @@ function Panel({ industry }: { industry: Industry }) {
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       className="rounded-3xl border border-border bg-card p-6 shadow-soft sm:p-10"
     >
-      <h3 className="text-3xl leading-tight font-bold tracking-tight text-balance sm:text-4xl">{industry.headline}</h3>
-      <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">{industry.summary}</p>
+      <h3 className="text-2xl leading-tight font-bold tracking-tight text-balance sm:text-[1.75rem]">{industry.headline}</h3>
+      <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">{industry.summary}</p>
 
       <div className="mt-10 grid gap-8 md:grid-cols-2">
         <div>

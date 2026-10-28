@@ -45,11 +45,11 @@ export default function SolutionsPage() {
 
       <Section className="border-t border-border">
         <div className="container-site">
-          <SectionHeading index="01" eyebrow="Industries" title="Find your sector." description="Each page explains the problems we see most often, what we build, and the services involved." />
+          <SectionHeading eyebrow="Industries" title="Find your sector." description="Each page explains the problems we see most often, what we build, and the services involved." />
           <RevealGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4" stagger={0.05}>
             {industries.map((industry, i) => (
               <RevealItem key={industry.slug}>
-                <IndustryCard industry={industry} index={i + 1} />
+                <IndustryCard industry={industry} />
               </RevealItem>
             ))}
           </RevealGroup>
@@ -57,7 +57,7 @@ export default function SolutionsPage() {
       </Section>
 
       <div className="border-t border-border bg-card/40">
-        <FeaturedSolutions index="02" />
+        <FeaturedSolutions />
       </div>
       <div className="pt-16 lg:pt-24">
         <CtaBand />

@@ -34,7 +34,7 @@ export default function HomePage() {
       <ManagedServices />
       <Testimonials />
       <PricingApproach />
-      <FaqSection items={homeFaqs} index="11" />
+      <FaqSection items={homeFaqs} />
       <CtaBand />
       <div className="h-16 lg:h-24" />
     </>

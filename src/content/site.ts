@@ -64,13 +64,17 @@ export const fullAddress = `${site.contact.street}, ${site.contact.locality}, ${
 
 export type NavItem = { label: string; href: string };
 
+/** Header links. Kept short on purpose; Careers and Contact live in the footer and the header button. */
 export const mainNav: NavItem[] = [
-  { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
   { label: 'Solutions', href: '/solutions' },
-  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Case studies', href: '/case-studies' },
   { label: 'About', href: '/about' },
   { label: 'Insights', href: '/insights' },
+];
+
+/** Extra links shown only in the phone menu. */
+export const secondaryNav: NavItem[] = [
   { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
 ];

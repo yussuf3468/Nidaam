@@ -46,16 +46,16 @@ export function SiteHeader() {
             : 'border-transparent bg-transparent',
         )}
       >
-        <div className="container-site relative flex h-16 items-center justify-between gap-6 lg:h-[72px]">
+        <div className="container-site relative flex h-16 items-center justify-between gap-6">
           <Link href="/" className="relative z-10 shrink-0 rounded-md" aria-label="Nidaam Solutions, home">
-            <Logo className="h-8 lg:h-9" />
+            <Logo className="h-8" />
           </Link>
 
           <NavigationMenu.Root
             value={menu}
             onValueChange={setMenu}
             delayDuration={60}
-            className="absolute inset-x-0 top-0 hidden h-full justify-center xl:flex"
+            className="absolute inset-x-0 top-0 hidden h-full justify-center lg:flex"
             aria-label="Main"
           >
             <NavigationMenu.List className="flex h-full items-center gap-0.5">
@@ -74,7 +74,7 @@ export function SiteHeader() {
                         aria-hidden
                       />
                     </NavigationMenu.Trigger>
-                    <NavigationMenu.Content className="w-[min(1240px,calc(100vw-4rem))]">
+                    <NavigationMenu.Content className="w-[min(1080px,calc(100vw-3rem))]">
                       <ServicesMegaMenu onNavigate={() => setMenu('')} />
                     </NavigationMenu.Content>
                   </NavigationMenu.Item>
@@ -89,9 +89,6 @@ export function SiteHeader() {
                         )}
                       >
                         {item.label}
-                        {isActivePath(pathname, item.href) && (
-                          <span className="absolute bottom-0.5 left-1/2 size-1 -translate-x-1/2 rounded-full bg-brand" aria-hidden />
-                        )}
                       </Link>
                     </NavigationMenu.Link>
                   </NavigationMenu.Item>
@@ -108,7 +105,7 @@ export function SiteHeader() {
             <ThemeToggle />
             <Button asChild size="sm" className="hidden sm:inline-flex">
               <Link href="/contact">
-                Get started
+                Start a project
                 <ButtonArrow />
               </Link>
             </Button>
@@ -123,7 +120,7 @@ export function SiteHeader() {
 function ServicesMegaMenu({ onNavigate }: { onNavigate: () => void }) {
   const Flagship = icons[flagshipService.icon];
   return (
-    <div className="grid grid-cols-[1fr_300px]">
+    <div className="grid grid-cols-[1fr_260px]">
       <div className="grid grid-cols-4 gap-x-6 gap-y-2 p-7">
         {groupOrder.map((group) => (
           <div key={group}>
@@ -137,16 +134,13 @@ function ServicesMegaMenu({ onNavigate }: { onNavigate: () => void }) {
                       <Link
                         href={`/services/${service.slug}`}
                         onClick={onNavigate}
-                        className="group/item flex gap-3 rounded-xl p-3 transition-colors hover:bg-foreground/[0.04]"
+                        className="group/item flex items-center gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-foreground/[0.04]"
                       >
-                        <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-border bg-background text-foreground transition-colors group-hover/item:border-brand/40 group-hover/item:text-brand-ink">
+                        <span className="grid size-8 shrink-0 place-items-center rounded-lg border border-border bg-background text-foreground transition-colors group-hover/item:text-brand-ink">
                           <Icon className="size-[18px]" strokeWidth={1.6} aria-hidden />
                         </span>
                         <span className="min-w-0">
-                          <span className="block text-sm leading-tight font-semibold">{service.title}</span>
-                          <span className="mt-1 line-clamp-2 block font-body text-[0.8125rem] leading-snug text-muted-foreground">
-                            {service.tagline}
-                          </span>
+                          <span className="block text-sm leading-snug font-medium">{service.title}</span>
                         </span>
                       </Link>
                     </NavigationMenu.Link>
@@ -159,7 +153,6 @@ function ServicesMegaMenu({ onNavigate }: { onNavigate: () => void }) {
       </div>
 
       <div className="ink relative m-2 flex flex-col overflow-hidden rounded-2xl p-6">
-        <div className="bg-blueprint pointer-events-none absolute inset-0 opacity-60" aria-hidden />
         <div className="relative">
           <span className="grid size-10 place-items-center rounded-xl bg-brand/15 text-brand">
             <Flagship className="size-5" strokeWidth={1.6} aria-hidden />

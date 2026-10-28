@@ -41,7 +41,6 @@ export default function ContactPage() {
           path: '/contact',
         })}
       />
-      <div className="bg-blueprint pointer-events-none absolute inset-0 -z-10" aria-hidden />
       <div className="container-site">
         <div className="animate-fade-up">
           <Breadcrumbs items={[{ name: 'Contact', path: '/contact' }]} />
@@ -50,10 +49,10 @@ export default function ContactPage() {
           <div className="space-y-10 lg:col-span-5">
             <div className="animate-fade-up [animation-delay:60ms]">
               <Eyebrow>Contact</Eyebrow>
-              <h1 className="mt-6 text-5xl leading-[0.98] font-bold tracking-[-0.045em] text-balance sm:text-6xl xl:text-7xl">
+              <h1 className="mt-6 text-[clamp(2.125rem,3.3vw,3.375rem)] leading-[1.08] font-bold tracking-[-0.035em] text-balance">
                 Let’s build something that lasts.
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
                 Tell us about your organisation and what you want to achieve. Prefer to talk? Call, email or WhatsApp us directly.
               </p>
             </div>

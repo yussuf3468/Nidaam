@@ -59,11 +59,11 @@ export default function ServicesPage() {
       {groupOrder.map((group, gi) => (
         <Section key={group} id={group} className={gi % 2 === 0 ? 'border-t border-border' : 'border-t border-border bg-card/40'}>
           <div className="container-site">
-            <SectionHeading index={pad2(gi + 1)} eyebrow={serviceGroups[group].label} title={serviceGroups[group].description} description={groupIntro[group]} />
+            <SectionHeading eyebrow={serviceGroups[group].label} title={serviceGroups[group].description} description={groupIntro[group]} />
             <RevealGroup className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
               {servicesInGroup(group).map((service) => (
                 <RevealItem key={service.slug}>
-                  <ServiceCard service={service} index={services.indexOf(service) + 1} />
+                  <ServiceCard service={service} />
                 </RevealItem>
               ))}
             </RevealGroup>
@@ -72,7 +72,7 @@ export default function ServicesPage() {
       ))}
 
       <div className="border-t border-border">
-        <Process index="05" />
+        <Process />
       </div>
       <CtaBand />
       <div className="h-16 lg:h-24" />

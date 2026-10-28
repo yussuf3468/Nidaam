@@ -8,9 +8,9 @@ import { Logo } from '@/components/brand/logo';
 import { WhatsAppIcon } from '@/components/brand/social-icons';
 import { icons } from '@/components/icons';
 import { Button, ButtonArrow } from '@/components/ui/button';
-import { mailUrl, mainNav, site, whatsappUrl } from '@/content/site';
+import { mailUrl, mainNav, secondaryNav, site, whatsappUrl } from '@/content/site';
 import { groupOrder, serviceGroups, servicesInGroup } from '@/content/services';
-import { cn, isActivePath as isActive, pad2 } from '@/lib/utils';
+import { cn, isActivePath as isActive } from '@/lib/utils';
 
 /** Full-screen navigation for phones and tablets (below the xl breakpoint). */
 export function MobileMenu({ pathname }: { pathname: string }) {
@@ -22,7 +22,7 @@ export function MobileMenu({ pathname }: { pathname: string }) {
       <Dialog.Trigger asChild>
         <button
           type="button"
-          className="grid size-10 cursor-pointer place-items-center rounded-full text-foreground transition-colors hover:bg-foreground/[0.06] xl:hidden"
+          className="grid size-10 cursor-pointer place-items-center rounded-full text-foreground transition-colors hover:bg-foreground/[0.06] lg:hidden"
           aria-label="Open menu"
         >
           <Menu className="size-5" aria-hidden />
@@ -53,13 +53,12 @@ export function MobileMenu({ pathname }: { pathname: string }) {
 
           <nav className="container-site flex-1 pt-4 pb-8" aria-label="Mobile">
             <ul className="divide-y divide-border border-y border-border">
-              {mainNav.map((item, i) =>
+              {[...mainNav, ...secondaryNav].map((item) =>
                 item.href === '/services' ? (
                   <li key={item.href}>
                     <details className="group">
-                      <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-2xl font-semibold tracking-tight [&::-webkit-details-marker]:hidden">
+                      <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-xl font-semibold tracking-tight [&::-webkit-details-marker]:hidden">
                         <span className="flex items-baseline gap-3">
-                          <span className="font-mono text-xs text-faint">{pad2(i + 1)}</span>
                           {item.label}
                         </span>
                         <ChevronDown className="size-5 text-muted-foreground transition-transform group-open:rotate-180" aria-hidden />
@@ -102,11 +101,10 @@ export function MobileMenu({ pathname }: { pathname: string }) {
                       onClick={close}
                       aria-current={isActive(pathname, item.href) ? 'page' : undefined}
                       className={cn(
-                        'flex items-baseline gap-3 py-4 text-2xl font-semibold tracking-tight',
+                        'flex items-center gap-3 py-4 text-xl font-semibold tracking-tight',
                         isActive(pathname, item.href) ? 'text-foreground' : 'text-foreground/80',
                       )}
                     >
-                      <span className="font-mono text-xs text-faint">{pad2(i + 1)}</span>
                       {item.label}
                       {isActive(pathname, item.href) && <span className="size-1.5 self-center rounded-full bg-brand" aria-hidden />}
                     </Link>

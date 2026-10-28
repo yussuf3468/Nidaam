@@ -7,7 +7,6 @@ export function TechStack() {
     <Section id="technology" className="bg-card/40">
       <div className="container-site">
         <SectionHeading
-          index="07"
           eyebrow="Technology stack"
           title="Proven tools, chosen for the long run."
           description="We build on mainstream, well-supported technologies with large talent pools, so your system is never hostage to an obscure framework or a single developer."

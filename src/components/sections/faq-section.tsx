@@ -7,15 +7,15 @@ import { mailUrl, site, whatsappUrl } from '@/content/site';
 import { faqSchema } from '@/lib/schema';
 import { Eyebrow, Section } from './section';
 
-export function FaqSection({ items, index, title = 'Questions, answered plainly.' }: { items: AccordionEntry[]; index?: string; title?: string }) {
+export function FaqSection({ items, title = 'Questions, answered plainly.' }: { items: AccordionEntry[]; title?: string }) {
   return (
     <Section id="faq">
       <JsonLd data={faqSchema(items)} />
       <div className="container-site grid gap-12 lg:grid-cols-12 lg:gap-10">
         <Reveal className="lg:col-span-4">
           <div className="lg:sticky lg:top-32">
-            <Eyebrow index={index}>FAQ</Eyebrow>
-            <h2 className="mt-5 text-4xl leading-[1.05] font-bold tracking-[-0.035em] text-balance sm:text-5xl">{title}</h2>
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-5 text-[clamp(1.75rem,2.5vw,2.5rem)] leading-[1.15] font-bold tracking-[-0.03em] text-balance">{title}</h2>
             <p className="mt-6 max-w-sm leading-relaxed text-muted-foreground">
               Something we have not covered? Ask us directly. A person reads every message.
             </p>

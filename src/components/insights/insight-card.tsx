@@ -48,7 +48,7 @@ function Cover({ slug, category, large }: { slug: string; category: string; larg
           />
         ))}
       </svg>
-      <span className="absolute bottom-4 left-5 font-mono text-[0.6875rem] tracking-[0.08em] text-muted-foreground uppercase">{category}</span>
+      <span className="absolute bottom-4 left-5 text-xs font-semibold text-muted-foreground">{category}</span>
     </div>
   );
 }

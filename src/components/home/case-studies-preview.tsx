@@ -10,7 +10,6 @@ export function CaseStudiesPreview() {
     <Section id="work" className="bg-card/40">
       <div className="container-site">
         <SectionHeading
-          index="05"
           eyebrow="Case studies"
           title="Measured in outcomes, not features."
           description="Every engagement starts with a business problem and ends with a number that moved: hours saved, errors removed, money reconciled."

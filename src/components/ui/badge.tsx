@@ -32,7 +32,7 @@ export function Tag({ children, className, ...props }: ComponentProps<'span'>) {
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-md border border-border bg-background/60 px-2 py-0.5 font-mono text-[0.6875rem] tracking-wide text-muted-foreground',
+        'inline-flex items-center rounded-md border border-border bg-background/60 px-2 py-0.5 text-xs text-muted-foreground',
         className,
       )}
       {...props}
@@ -47,7 +47,7 @@ export function SampleLabel({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-md border border-dashed border-border-strong px-1.5 py-0.5 font-mono text-[0.625rem] uppercase tracking-[0.08em] text-faint',
+        'inline-flex items-center rounded-md border border-dashed border-border-strong px-1.5 py-0.5 text-[0.6875rem] font-medium text-faint',
         className,
       )}
       title="An illustrative example of the systems we build"

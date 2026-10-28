@@ -6,12 +6,11 @@ import { Section, SectionHeading } from '@/components/sections/section';
 import { Button, ButtonArrow } from '@/components/ui/button';
 import { solutions } from '@/content/solutions';
 
-export function FeaturedSolutions({ index = '04' }: { index?: string }) {
+export function FeaturedSolutions({ showLink = true }: { showLink?: boolean }) {
   return (
     <Section id="solutions">
       <div className="container-site">
         <SectionHeading
-          index={index}
           eyebrow="Featured solutions"
           title="Proven foundations, shaped to your operations."
           description="We reuse what has been proven across projects, so your budget goes into what makes your organisation different instead of rebuilding logins and reports from scratch."
@@ -41,7 +40,7 @@ export function FeaturedSolutions({ index = '04' }: { index?: string }) {
                   <div className="flex items-start justify-between gap-6">
                     <div>
                       <p className="eyebrow">{solution.forIndustries.join(' · ')}</p>
-                      <h3 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">{solution.title}</h3>
+                      <h3 className="mt-2 text-xl font-bold tracking-tight sm:text-2xl">{solution.title}</h3>
                     </div>
                     <span className="grid size-10 shrink-0 place-items-center rounded-full border border-border transition-colors duration-300 group-hover:border-foreground group-hover:bg-foreground group-hover:text-background">
                       <ArrowUpRight className="size-4" aria-hidden />

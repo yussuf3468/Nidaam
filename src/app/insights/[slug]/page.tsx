@@ -44,7 +44,6 @@ export default async function InsightPage({ params }: Props) {
       <JsonLd data={articleSchema(post)} />
       <article>
         <header className="relative overflow-hidden pt-28 pb-12 sm:pt-32 lg:pt-40 lg:pb-16">
-          <div className="bg-blueprint pointer-events-none absolute inset-0 -z-10" aria-hidden />
           <div className="container-site">
             <div className="animate-fade-up">
               <Breadcrumbs
@@ -61,10 +60,10 @@ export default async function InsightPage({ params }: Props) {
                 </Link>{' '}
                 · <time dateTime={post.date}>{formatDate(post.date)}</time> · {readingMinutes(post.body)} min read
               </p>
-              <h1 className="mt-6 animate-fade-up text-4xl leading-[1.03] font-bold tracking-[-0.04em] text-balance [animation-delay:120ms] sm:text-6xl lg:text-7xl">
+              <h1 className="mt-6 animate-fade-up text-[clamp(2rem,3vw,3.125rem)] leading-[1.1] font-bold tracking-[-0.035em] text-balance [animation-delay:120ms]">
                 {post.title}
               </h1>
-              <p className="mt-6 max-w-3xl animate-fade-up text-lg leading-relaxed text-muted-foreground [animation-delay:200ms] sm:text-xl">
+              <p className="mt-6 max-w-3xl animate-fade-up text-base leading-relaxed text-muted-foreground [animation-delay:200ms] sm:text-lg">
                 {post.excerpt}
               </p>
               <p className="mt-8 animate-fade-up text-sm [animation-delay:260ms]">

@@ -11,7 +11,7 @@ export function ResponseTargets({ className }: { className?: string }) {
             Support hours: {supportHours}
           </caption>
           <thead>
-            <tr className="border-b border-border font-mono text-xs tracking-wider text-muted-foreground uppercase">
+            <tr className="border-b border-border text-xs font-semibold text-muted-foreground">
               <th scope="col" className="px-6 py-3 font-normal">
                 Priority
               </th>

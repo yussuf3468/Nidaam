@@ -108,10 +108,10 @@ export default async function ServicePage({ params }: Props) {
       <Section className="border-t border-border">
         <div className="container-site grid gap-12 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-7">
-            <Eyebrow index="01">Overview</Eyebrow>
+            <Eyebrow>Overview</Eyebrow>
             <div className="mt-6 space-y-6">
               {service.overview.map((p, i) => (
-                <p key={p.slice(0, 20)} className={i === 0 ? 'text-2xl leading-snug font-medium tracking-tight text-pretty sm:text-3xl' : 'text-lg leading-relaxed text-muted-foreground'}>
+                <p key={p.slice(0, 20)} className={i === 0 ? 'text-xl leading-snug font-medium tracking-tight text-pretty sm:text-2xl' : 'text-base leading-relaxed text-muted-foreground'}>
                   {p}
                 </p>
               ))}
@@ -136,11 +136,10 @@ export default async function ServicePage({ params }: Props) {
       {/* Features */}
       <Section className="bg-card/40">
         <div className="container-site">
-          <SectionHeading index="02" eyebrow="Capabilities" title="What we deliver." />
+          <SectionHeading eyebrow="Capabilities" title="What we deliver." />
           <RevealGroup className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-2 xl:grid-cols-3">
             {service.features.map((f, i) => (
               <RevealItem key={f.title} className="bg-card p-7 sm:p-8">
-                <span className="font-mono text-xs text-faint">{pad2(i + 1)}</span>
                 <h3 className="mt-8 text-xl font-bold tracking-tight">{f.title}</h3>
                 <p className="mt-2 leading-relaxed text-muted-foreground">{f.body}</p>
               </RevealItem>
@@ -152,7 +151,7 @@ export default async function ServicePage({ params }: Props) {
       {/* Benefits */}
       <Section>
         <div className="container-site">
-          <SectionHeading index="03" eyebrow="Benefits" title="What changes for your organisation." />
+          <SectionHeading eyebrow="Benefits" title="What changes for your organisation." />
           <RevealGroup className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {service.benefits.map((b) => (
               <RevealItem key={b.title} className="rounded-3xl border border-border bg-card p-7">
@@ -171,7 +170,6 @@ export default async function ServicePage({ params }: Props) {
         <Section className="ink">
           <div className="container-site">
             <SectionHeading
-              index="04"
               eyebrow="Service level agreement"
               title="Written response times. Monthly reports."
               description="Clients on a managed services plan get support with these response targets. Every month you receive a report of what was done, what we found and what we recommend."
@@ -247,7 +245,7 @@ export default async function ServicePage({ params }: Props) {
             <RevealGroup className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {siblings.map((s) => (
                 <RevealItem key={s.slug}>
-                  <ServiceCard service={s} index={services.indexOf(s) + 1} />
+                  <ServiceCard service={s} />
                 </RevealItem>
               ))}
             </RevealGroup>

@@ -375,13 +375,12 @@ html.lenis body {
   }
 }
 
-/* Small mono label used above headings. */
+/* Small label used above headings and in cards. */
 @utility eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
   color: var(--muted-foreground);
 }
 

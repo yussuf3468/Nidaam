@@ -71,11 +71,10 @@ export default function CareersPage() {
 
       <Section className="border-t border-border">
         <div className="container-site">
-          <SectionHeading index="01" eyebrow="Culture" title="How we work together." />
+          <SectionHeading eyebrow="Culture" title="How we work together." />
           <RevealGroup className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {culture.map((c, i) => (
               <RevealItem key={c.title} className="rounded-3xl border border-border bg-card p-7">
-                <span className="font-mono text-xs text-brand-ink">{pad2(i + 1)}</span>
                 <h3 className="mt-8 text-xl font-bold tracking-tight">{c.title}</h3>
                 <p className="mt-2 leading-relaxed text-muted-foreground">{c.body}</p>
               </RevealItem>
@@ -87,8 +86,8 @@ export default function CareersPage() {
       <Section className="bg-card/40">
         <div className="container-site grid gap-12 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-5">
-            <Eyebrow index="02">What we offer</Eyebrow>
-            <h2 className="mt-5 text-4xl leading-[1.05] font-bold tracking-[-0.035em] text-balance sm:text-5xl">Work you can be proud of.</h2>
+            <Eyebrow>What we offer</Eyebrow>
+            <h2 className="mt-5 text-[clamp(1.75rem,2.5vw,2.5rem)] leading-[1.15] font-bold tracking-[-0.03em] text-balance">Work you can be proud of.</h2>
           </Reveal>
           <RevealGroup as="ul" className="grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2 lg:col-span-7">
             {offer.map((o) => (
@@ -103,11 +102,11 @@ export default function CareersPage() {
 
       <Section>
         <div className="container-site">
-          <SectionHeading index="03" eyebrow="Hiring process" title="Five steps, no surprises." description="Respectful of your time, clear about where you stand, and the same for every candidate." />
+          <SectionHeading eyebrow="Hiring process" title="Five steps, no surprises." description="Respectful of your time, clear about where you stand, and the same for every candidate." />
           <RevealGroup as="ol" className="mt-12 grid gap-4 md:grid-cols-5">
             {steps.map((s, i) => (
               <RevealItem as="li" key={s.title} className="relative rounded-3xl border border-border bg-card p-6">
-                <span className="text-4xl font-bold tracking-tight text-foreground/15">{pad2(i + 1)}</span>
+                <span className="text-sm font-semibold text-brand-ink">Step {i + 1}</span>
                 <h3 className="mt-6 font-bold tracking-tight">{s.title}</h3>
                 <p className="mt-2 text-[0.9375rem] leading-relaxed text-muted-foreground">{s.body}</p>
               </RevealItem>
@@ -119,7 +118,6 @@ export default function CareersPage() {
       <Section className="ink">
         <div className="container-site">
           <SectionHeading
-            index="04"
             eyebrow="Future opportunities"
             title="No open roles right now. We are always glad to meet good people."
             description="As we grow, these are the roles we expect to hire for. Register your interest and we will contact you when a position opens."
@@ -129,8 +127,8 @@ export default function CareersPage() {
               <RevealItem as="li" key={r.title}>
                 <a href={careersMail} className="group flex items-center justify-between gap-6 py-6">
                   <span>
-                    <span className="block text-xl font-bold tracking-tight sm:text-2xl">{r.title}</span>
-                    <span className="mt-1 block font-mono text-xs text-muted-foreground">{r.detail}</span>
+                    <span className="block text-lg font-bold tracking-tight sm:text-xl">{r.title}</span>
+                    <span className="mt-1 block text-sm text-muted-foreground">{r.detail}</span>
                   </span>
                   <span className="flex items-center gap-2 text-sm font-semibold text-muted-foreground transition-colors group-hover:text-foreground">
                     <span className="hidden sm:inline">Register interest</span>

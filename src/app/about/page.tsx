@@ -76,7 +76,7 @@ export default function AboutPage() {
       <Section className="border-t border-border">
         <div className="container-site grid gap-12 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-5">
-            <Eyebrow index="01">Our story</Eyebrow>
+            <Eyebrow>Our story</Eyebrow>
             <div className="mt-8 flex items-center gap-6">
               <LogoMark className="h-24 w-auto" />
               <div>
@@ -86,14 +86,14 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <Reveal className="space-y-6 lg:col-span-7" delay={0.08}>
-            <p className="text-2xl leading-snug font-medium tracking-tight text-pretty sm:text-3xl">
+            <p className="text-xl leading-snug font-medium tracking-tight text-pretty sm:text-2xl">
               Our name means system and order. It describes what we build and how we work.
             </p>
-            <p className="text-lg leading-relaxed text-muted-foreground">
+            <p className="text-base leading-relaxed text-muted-foreground">
               Nidaam Solutions was founded in Eastleigh, Nairobi, by five people who kept seeing the same thing: capable organisations
               held back by scattered spreadsheets, disconnected tools and software nobody looked after once it launched.
             </p>
-            <p className="text-lg leading-relaxed text-muted-foreground">
+            <p className="text-base leading-relaxed text-muted-foreground">
               We set out to be the partner we would want ourselves: engineers who understand the business first, document what they
               build, price work in writing and stay accountable after go-live. Officially registered in {new Date(site.foundingDate).getFullYear()}, we
               work with businesses, schools and organisations across Kenya.
@@ -107,11 +107,11 @@ export default function AboutPage() {
         <div className="container-site grid gap-4 lg:grid-cols-2">
           <Reveal className="ink rounded-3xl p-8 sm:p-12">
             <p className="eyebrow">Our mission</p>
-            <p className="mt-8 text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl">{mission}</p>
+            <p className="mt-8 text-lg leading-snug font-semibold tracking-tight text-balance sm:text-xl">{mission}</p>
           </Reveal>
           <Reveal className="rounded-3xl border border-border bg-card p-8 sm:p-12" delay={0.08}>
             <p className="eyebrow">Our vision</p>
-            <p className="mt-8 text-2xl leading-snug font-semibold tracking-tight text-balance sm:text-3xl">{vision}</p>
+            <p className="mt-8 text-lg leading-snug font-semibold tracking-tight text-balance sm:text-xl">{vision}</p>
           </Reveal>
         </div>
       </Section>
@@ -119,12 +119,11 @@ export default function AboutPage() {
       {/* Values */}
       <Section className="bg-card/40">
         <div className="container-site">
-          <SectionHeading index="02" eyebrow="Values" title="What we hold ourselves to." />
+          <SectionHeading eyebrow="Values" title="What we hold ourselves to." />
           <RevealGroup className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2 xl:grid-cols-3">
             {values.map((v, i) => (
               <RevealItem key={v.title} className="bg-card p-7 sm:p-9">
-                <span className="font-mono text-xs text-brand-ink">{pad2(i + 1)}</span>
-                <h3 className="mt-8 text-2xl font-bold tracking-tight">{v.title}</h3>
+                <h3 className="mt-6 text-xl font-bold tracking-tight">{v.title}</h3>
                 <p className="mt-3 leading-relaxed text-muted-foreground">{v.body}</p>
               </RevealItem>
             ))}
@@ -136,7 +135,6 @@ export default function AboutPage() {
       <Section>
         <div className="container-site">
           <SectionHeading
-            index="03"
             eyebrow="How we work"
             title="Standards we do not negotiate."
             description="The practices behind every system we deliver, from the first line of code to years of support."
@@ -145,10 +143,9 @@ export default function AboutPage() {
             {philosophy.map((p, i) => (
               <Reveal key={p.title} className="grid gap-4 py-8 lg:grid-cols-12 lg:gap-10">
                 <div className="flex items-baseline gap-4 lg:col-span-4">
-                  <span className="font-mono text-xs text-faint">{pad2(i + 1)}</span>
                   <h3 className="text-xl font-bold tracking-tight">{p.title}</h3>
                 </div>
-                <p className="text-lg leading-relaxed text-muted-foreground lg:col-span-8">{p.body}</p>
+                <p className="text-base leading-relaxed text-muted-foreground lg:col-span-8">{p.body}</p>
               </Reveal>
             ))}
           </div>
@@ -159,7 +156,6 @@ export default function AboutPage() {
       <Section className="ink">
         <div className="container-site">
           <SectionHeading
-            index="04"
             eyebrow="Quality, security and client protection"
             title="Commitments, in writing."
             description="These are part of every engagement, not optional extras."
@@ -192,7 +188,6 @@ export default function AboutPage() {
       <Section>
         <div className="container-site">
           <SectionHeading
-            index="05"
             eyebrow="Founding team"
             title="The people accountable for your system."
             aside={

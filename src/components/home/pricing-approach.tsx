@@ -6,12 +6,11 @@ import { Button, ButtonArrow } from '@/components/ui/button';
 import { engagementModels, paymentTerms, priceFactors } from '@/content/company';
 import { pad2 } from '@/lib/utils';
 
-export function PricingApproach({ index = '10' }: { index?: string }) {
+export function PricingApproach() {
   return (
     <Section id="pricing" className="bg-card/40">
       <div className="container-site">
         <SectionHeading
-          index={index}
           eyebrow="Pricing approach"
           title="Clear prices, agreed in writing."
           description="Every project is priced in a written quotation after we understand the requirements. No hourly surprises, no hidden licences, and changes are priced and approved before they are built."
@@ -22,8 +21,7 @@ export function PricingApproach({ index = '10' }: { index?: string }) {
             <RevealItem key={model.title}>
               <div className={i === 2 ? 'ink flex h-full flex-col rounded-3xl p-8' : 'flex h-full flex-col rounded-3xl border border-border bg-card p-8'}>
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-muted-foreground">{pad2(i + 1)}</span>
-                  <span className="rounded-full border border-border px-3 py-1 font-mono text-[0.6875rem] tracking-wider text-muted-foreground uppercase">
+                  <span className="rounded-full border border-border px-3 py-1 text-xs font-semibold text-muted-foreground">
                     {model.label}
                   </span>
                 </div>

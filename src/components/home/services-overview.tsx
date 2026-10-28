@@ -27,7 +27,6 @@ export function ServicesOverview() {
     <Section id="services">
       <div className="container-site">
         <SectionHeading
-          index="01"
           eyebrow="Services"
           title="We don’t sell websites. We build business systems."
           description="From the first workshop to years of managed support, one team designs, builds, integrates and runs the software your operations depend on."
@@ -46,7 +45,7 @@ export function ServicesOverview() {
             const service = getService(slug)!;
             return (
               <RevealItem key={slug} className={className}>
-                <ServiceCard service={service} index={i + 1} size={feature ? 'feature' : 'default'} />
+                <ServiceCard service={service} size={feature ? 'feature' : 'default'} />
               </RevealItem>
             );
           })}

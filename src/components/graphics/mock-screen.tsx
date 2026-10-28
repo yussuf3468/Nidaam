@@ -284,6 +284,50 @@ const content: Record<Exclude<MockVariant, 'field'>, ReactNode> = {
   ),
 };
 
+/** Parent app screen: fee balance, M-Pesa receipt and school updates. */
+export function ParentPhone({ className }: { className?: string }) {
+  return (
+    <div className={cn('@container', className)} role="img" aria-label="Illustration of a parent app showing a paid fee balance and an M-Pesa receipt">
+      <div aria-hidden style={{ fontSize: 'clamp(6px, 5.2cqi, 13px)' }}>
+        <div className="rounded-[2.4em] border border-border bg-card p-[0.55em] shadow-lift">
+          <div className="overflow-hidden rounded-[1.9em] border border-border bg-background">
+            <div className="flex items-center justify-between px-[1.3em] pt-[0.9em] pb-[0.5em] font-mono text-[0.72em] text-muted-foreground">
+              <span>09:41</span>
+              <span className="h-[1.1em] w-[4.5em] rounded-full bg-foreground/80" />
+              <span>4G</span>
+            </div>
+            <div className="space-y-[0.75em] p-[1em]">
+              <p className="font-sans text-[0.8em] text-muted-foreground">Fee statement · Grade 6</p>
+              <div className="rounded-[0.9em] bg-primary p-[1em] text-primary-foreground">
+                <p className="font-sans text-[0.72em] opacity-70">Balance, Term 3</p>
+                <p className="mt-[0.15em] font-sans text-[1.6em] leading-tight font-bold tracking-tight">KES 0.00</p>
+                <p className="mt-[0.3em] flex items-center gap-[0.4em] font-sans text-[0.72em]">
+                  <span className="size-[0.55em] rounded-full bg-success" />
+                  Paid in full
+                </p>
+              </div>
+              <div className="rounded-[0.9em] border border-border bg-card p-[0.85em]">
+                <div className="flex items-center justify-between">
+                  <p className="font-sans text-[0.8em] font-semibold">M-Pesa payment</p>
+                  <Status tone="ok">Received</Status>
+                </div>
+                <p className="mt-[0.3em] font-mono text-[0.72em] text-muted-foreground">KES 18,500 · Today 09:41</p>
+                <p className="font-mono text-[0.72em] text-muted-foreground">Receipt QJK4T7XA2M</p>
+              </div>
+              {['Term 3 report card is ready', 'Half-term break starts Friday'].map((note) => (
+                <div key={note} className="flex items-center gap-[0.6em] rounded-[0.9em] border border-border bg-card p-[0.75em]">
+                  <span className="size-[1.6em] shrink-0 rounded-[0.5em] bg-brand/15" />
+                  <p className="font-sans text-[0.78em] leading-snug">{note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function FieldPhone() {
   return (
     <div className="mx-auto w-[58%] rounded-[2.6em] border border-border bg-card p-[0.7em] shadow-lift">

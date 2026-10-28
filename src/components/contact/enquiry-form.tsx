@@ -111,7 +111,7 @@ export function EnquiryForm() {
             <span className="grid size-14 place-items-center rounded-full bg-success/15 text-success">
               <CircleCheck className="size-7" aria-hidden />
             </span>
-            <h2 className="mt-8 text-3xl font-bold tracking-tight sm:text-4xl">Thank you. Your enquiry is with us.</h2>
+            <h2 className="mt-6 text-xl font-bold tracking-tight sm:text-3xl">Thank you. Your enquiry is with us.</h2>
             <p className="mt-4 max-w-lg text-lg leading-relaxed text-muted-foreground">
               We will review the details and come back to you with next steps. If it is urgent, WhatsApp is the fastest way to reach us.
             </p>
