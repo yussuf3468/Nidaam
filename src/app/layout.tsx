@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { JetBrains_Mono, Manrope, Outfit } from 'next/font/google';
+import { CookieBanner } from '@/components/layout/cookie-banner';
 import { MobileActionBar } from '@/components/layout/mobile-action-bar';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { SiteHeader } from '@/components/layout/site-header';
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main">{children}</main>
           <SiteFooter />
           <MobileActionBar />
+          <CookieBanner />
           <div className="noise" aria-hidden />
         </Providers>
         <JsonLd data={organizationSchema()} />

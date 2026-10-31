@@ -12,7 +12,6 @@ import { site } from '@/content/site';
 import { JsonLd } from '@/components/seo/json-ld';
 import { webPageSchema } from '@/lib/schema';
 import { pageMetadata } from '@/lib/seo';
-import { pad2 } from '@/lib/utils';
 
 export const metadata: Metadata = pageMetadata({
   title: 'About us',
@@ -90,13 +89,18 @@ export default function AboutPage() {
               Our name means system and order. It describes what we build and how we work.
             </p>
             <p className="text-base leading-relaxed text-muted-foreground">
-              Nidaam Solutions was founded in Eastleigh, Nairobi, by five people who kept seeing the same thing: capable organisations
-              held back by scattered spreadsheets, disconnected tools and software nobody looked after once it launched.
+              Nidaam Solutions is based in Eastleigh, Nairobi, and was founded by five partners covering software engineering, design,
+              finance and sales. Before registering as Nidaam Solutions in {new Date(site.foundingDate).getFullYear()}, the team built
+              websites and platforms under the name Lenzro, including a car hire platform, the Islii Barista School website and fleet
+              management for Gam Oil Trading.{' '}
+              <Link href="/case-studies" className="font-medium text-foreground underline underline-offset-4">
+                See our work
+              </Link>
+              .
             </p>
             <p className="text-base leading-relaxed text-muted-foreground">
-              We set out to be the partner we would want ourselves: engineers who understand the business first, document what they
-              build, price work in writing and stay accountable after go-live. Officially registered in {new Date(site.foundingDate).getFullYear()}, we
-              work with businesses, schools and organisations across Kenya.
+              We work the way we would want a partner to work with us: understand the business first, document what we build, price work
+              in writing and stay accountable after go-live.
             </p>
           </Reveal>
         </div>
@@ -121,7 +125,7 @@ export default function AboutPage() {
         <div className="container-site">
           <SectionHeading eyebrow="Values" title="What we hold ourselves to." />
           <RevealGroup className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2 xl:grid-cols-3">
-            {values.map((v, i) => (
+            {values.map((v) => (
               <RevealItem key={v.title} className="bg-card p-7 sm:p-9">
                 <h3 className="mt-6 text-xl font-bold tracking-tight">{v.title}</h3>
                 <p className="mt-3 leading-relaxed text-muted-foreground">{v.body}</p>
@@ -140,7 +144,7 @@ export default function AboutPage() {
             description="The practices behind every system we deliver, from the first line of code to years of support."
           />
           <div className="mt-12 divide-y divide-border border-y border-border">
-            {philosophy.map((p, i) => (
+            {philosophy.map((p) => (
               <Reveal key={p.title} className="grid gap-4 py-8 lg:grid-cols-12 lg:gap-10">
                 <div className="flex items-baseline gap-4 lg:col-span-4">
                   <h3 className="text-xl font-bold tracking-tight">{p.title}</h3>
@@ -214,7 +218,7 @@ export default function AboutPage() {
       </Section>
 
       <CtaBand title="Work with a team that stays." />
-      <div className="h-16 lg:h-24" />
+      <div className="h-12 lg:h-16" />
     </>
   );
 }

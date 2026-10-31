@@ -10,7 +10,7 @@ export function Industries() {
         <SectionHeading
           eyebrow="Industries"
           title="Built around how your sector actually works."
-          description="Schools reconcile fees, clinics file claims, distributors prove deliveries. We bring patterns that work in each industry, then shape them to your operations."
+          description="Schools reconcile fees, clinics file claims, distributors prove deliveries. We learn how your sector works, then shape the system around your operations."
         />
         <Reveal className="mt-14">
           <IndustriesExplorer industries={industries} />

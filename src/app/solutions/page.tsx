@@ -32,7 +32,7 @@ export default function SolutionsPage() {
         crumbs={[{ name: 'Solutions', path: '/solutions' }]}
         eyebrow={`${industries.length} industries`}
         title="Solutions shaped by how your industry works."
-        description="Every sector has its own rhythm: school terms, insurance claims, delivery routes, tour seasons. We bring patterns that already work in your industry and shape them to your organisation."
+        description="Every sector has its own rhythm: school terms, insurance claims, delivery routes, tour seasons. We learn how your industry works and shape the system around your organisation."
         actions={
           <Button asChild size="lg">
             <Link href="/contact">
@@ -47,7 +47,7 @@ export default function SolutionsPage() {
         <div className="container-site">
           <SectionHeading eyebrow="Industries" title="Find your sector." description="Each page explains the problems we see most often, what we build, and the services involved." />
           <RevealGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4" stagger={0.05}>
-            {industries.map((industry, i) => (
+            {industries.map((industry) => (
               <RevealItem key={industry.slug}>
                 <IndustryCard industry={industry} />
               </RevealItem>
@@ -57,12 +57,12 @@ export default function SolutionsPage() {
       </Section>
 
       <div className="border-t border-border bg-card/40">
-        <FeaturedSolutions />
+        <FeaturedSolutions showLink={false} />
       </div>
       <div className="pt-16 lg:pt-24">
         <CtaBand />
       </div>
-      <div className="h-16 lg:h-24" />
+      <div className="h-12 lg:h-16" />
     </>
   );
 }

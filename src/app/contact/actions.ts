@@ -3,7 +3,11 @@
 import { site } from '@/content/site';
 import { enquirySchema, formatEnquiry, type EnquiryInput } from '@/lib/enquiry';
 
-export type EnquiryResult = { ok: true } | { ok: false; error: string };
+/**
+ * `notConfigured` means email delivery has not been set up yet; the form then offers
+ * to send the same enquiry by WhatsApp or email instead, so no enquiry is lost.
+ */
+export type EnquiryResult = { ok: true } | { ok: false; error: string; notConfigured?: boolean };
 
 const fallback = `Please email ${site.contact.email} or WhatsApp ${site.contact.phoneDisplay} and we will pick it up from there.`;
 
@@ -24,12 +28,12 @@ export async function submitEnquiry(input: EnquiryInput): Promise<EnquiryResult>
   const to = process.env.CONTACT_TO || site.contact.email;
 
   if (!apiKey || !from) {
-    if (process.env.NODE_ENV !== 'production') {
-      console.info('[enquiry] Email delivery is not configured; enquiry received:\n' + formatEnquiry(enquiry));
-      return { ok: true };
-    }
-    console.error('[enquiry] RESEND_API_KEY / CONTACT_FROM are not set; enquiry could not be delivered.');
-    return { ok: false, error: `Our form is temporarily unavailable. ${fallback}` };
+    console.warn('[enquiry] RESEND_API_KEY / CONTACT_FROM are not set; offering WhatsApp or email instead.');
+    return {
+      ok: false,
+      notConfigured: true,
+      error: 'Online sending is not switched on yet. Your enquiry is ready to send by WhatsApp or email instead; we have filled it in for you.',
+    };
   }
 
   try {
@@ -40,7 +44,7 @@ export async function submitEnquiry(input: EnquiryInput): Promise<EnquiryResult>
         from,
         to: [to],
         reply_to: enquiry.email,
-        subject: `New enquiry: ${enquiry.projectType} from ${enquiry.name}`,
+        subject: `New enquiry from ${enquiry.name}${enquiry.projectType ? `: ${enquiry.projectType}` : ''}`,
         text: formatEnquiry(enquiry),
       }),
     });

@@ -12,11 +12,11 @@ export const mission =
   'To provide high-quality software development, automation, and managed technology services that enable our clients to focus on running their businesses while we manage their technology.';
 
 export const founders = [
-  { name: 'Yussuf Hassan Muse', role: 'Head of Finance & Administration' },
-  { name: 'Abdimalik Mohamed Mohamud', role: 'Backend Developer' },
-  { name: 'Abdiaziz Mohamed Abdirahman', role: 'Full-Stack Developer' },
-  { name: 'Mohamed Hassan Musa', role: 'Head of Sales & Business Development' },
-  { name: 'Ali Ahmed Abdo', role: 'Creative Design & Multimedia Lead' },
+  { name: 'Yussuf Muse', role: 'Head of Finance & Administration' },
+  { name: 'Abdimalik Mohamud', role: 'Backend Developer' },
+  { name: 'Abdiaziz Abdirahman', role: 'Full-Stack Developer' },
+  { name: 'Mohamed Musa', role: 'Head of Sales & Business Development' },
+  { name: 'Ali Abdo', role: 'Creative Design & Multimedia Lead' },
 ];
 
 export type ProcessStep = { title: string; body: string; detail: string; icon: IconName };
@@ -97,7 +97,7 @@ export const reasons: Reason[] = [
   },
   {
     title: 'Scalable systems',
-    body: 'Designed to grow from one branch to many and from hundreds of records to millions, without rewrites.',
+    body: 'Designed to grow from one branch to many without starting over.',
     icon: 'scaling',
   },
   {

@@ -1,42 +1,68 @@
 import type { Metadata } from 'next';
 import { CaseStudyCard } from '@/components/case-studies/case-study-card';
 import { SampleNotice } from '@/components/case-studies/sample-notice';
+import { Testimonials } from '@/components/home/testimonials';
 import { RevealGroup, RevealItem } from '@/components/motion/reveal';
+import { ProjectCard } from '@/components/projects/project-card';
+import { JsonLd } from '@/components/seo/json-ld';
 import { CtaBand } from '@/components/sections/cta-band';
 import { PageHero } from '@/components/sections/page-hero';
-import { Section } from '@/components/sections/section';
+import { Section, SectionHeading } from '@/components/sections/section';
 import { caseStudies } from '@/content/case-studies';
-import { JsonLd } from '@/components/seo/json-ld';
-import { webPageSchema } from '@/lib/schema';
+import { projects } from '@/content/projects';
+import { itemListSchema, webPageSchema } from '@/lib/schema';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Case studies',
+  title: 'Projects',
   description:
-    'How Nidaam Solutions approaches school platforms, retail operations, logistics, healthcare, travel booking and NGO field data systems: challenge, solution and outcome.',
+    'Projects by the Nidaam Solutions team: a car hire platform, the Islii Barista School, Anchor Point Initiative, the Mayo doctor booking platform and fleet management for Gam Oil Trading.',
   path: '/case-studies',
 });
 
-export default function CaseStudiesPage() {
+export default function ProjectsPage() {
   return (
     <>
       <JsonLd
-        data={webPageSchema({ type: 'CollectionPage', name: 'Nidaam Solutions case studies', description: metadata.description as string, path: '/case-studies' })}
+        data={[
+          webPageSchema({ type: 'CollectionPage', name: 'Projects by Nidaam Solutions', description: metadata.description as string, path: '/case-studies' }),
+          itemListSchema('Projects', projects.map((p) => ({ name: p.name, path: '/case-studies' }))),
+        ]}
       />
       <PageHero
-        crumbs={[{ name: 'Case Studies', path: '/case-studies' }]}
+        crumbs={[{ name: 'Projects', path: '/case-studies' }]}
         eyebrow="Our work"
-        title="Problems solved, in numbers."
-        description="Each engagement starts with a specific operational problem and ends with a measurable change. Here is how we approach them: the challenge, the system we build, the outcome and the technology behind it."
-      >
-        <div className="mt-10 animate-fade-up [animation-delay:320ms]">
-          <SampleNotice />
-        </div>
-      </PageHero>
+        title="Systems our team has built and launched."
+        description="Platforms and websites for businesses, schools and organisations. Where a project is live, you can open it and look for yourself."
+      />
 
-      <Section className="border-t border-border pt-12! lg:pt-16!">
+      <Section className="border-t border-border pt-12! lg:pt-14!">
         <div className="container-site">
           <RevealGroup className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {projects.map((project, i) => (
+              <RevealItem key={project.slug}>
+                <ProjectCard project={project} priority={i < 3} />
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </Section>
+
+      <div className="border-t border-border">
+        <Testimonials />
+      </div>
+
+      <Section className="border-t border-border bg-card/40">
+        <div className="container-site">
+          <SectionHeading
+            eyebrow="Example projects"
+            title="How we would approach other industries."
+            description="Examples of systems we are set up to build, showing the problem, our approach and how success would be measured."
+          />
+          <div className="mt-6">
+            <SampleNotice />
+          </div>
+          <RevealGroup className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {caseStudies.map((study) => (
               <RevealItem key={study.slug}>
                 <CaseStudyCard study={study} />
@@ -46,8 +72,8 @@ export default function CaseStudiesPage() {
         </div>
       </Section>
 
-      <CtaBand title="Have a problem like these?" />
-      <div className="h-16 lg:h-24" />
+      <CtaBand title="Have a project in mind?" />
+      <div className="h-12 lg:h-16" />
     </>
   );
 }

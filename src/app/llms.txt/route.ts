@@ -35,7 +35,7 @@ export function GET() {
     '',
     '## Company',
     `- [About](${absoluteUrl('/about')})`,
-    `- [Case studies](${absoluteUrl('/case-studies')}): ${caseStudies.length} illustrative engagements`,
+    `- [Example projects](${absoluteUrl('/case-studies')}): ${caseStudies.length} examples of how we approach common problems (not client case studies)`,
     `- [Careers](${absoluteUrl('/careers')})`,
     `- [Contact](${absoluteUrl('/contact')})`,
     '',

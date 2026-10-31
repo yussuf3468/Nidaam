@@ -41,7 +41,7 @@ export function ServicesOverview() {
         />
 
         <RevealGroup className="mt-14 grid gap-4 xl:auto-rows-fr md:grid-cols-2 xl:grid-cols-4 xl:[grid-auto-flow:dense]">
-          {layout.map(({ slug, className, feature }, i) => {
+          {layout.map(({ slug, className, feature }) => {
             const service = getService(slug)!;
             return (
               <RevealItem key={slug} className={className}>

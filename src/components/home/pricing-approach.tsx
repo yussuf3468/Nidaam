@@ -4,7 +4,6 @@ import { Reveal, RevealGroup, RevealItem } from '@/components/motion/reveal';
 import { Section, SectionHeading } from '@/components/sections/section';
 import { Button, ButtonArrow } from '@/components/ui/button';
 import { engagementModels, paymentTerms, priceFactors } from '@/content/company';
-import { pad2 } from '@/lib/utils';
 
 export function PricingApproach() {
   return (

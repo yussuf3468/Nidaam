@@ -43,7 +43,7 @@ export default async function InsightPage({ params }: Props) {
     <>
       <JsonLd data={articleSchema(post)} />
       <article>
-        <header className="relative overflow-hidden pt-28 pb-12 sm:pt-32 lg:pt-40 lg:pb-16">
+        <header className="relative overflow-hidden pt-24 pb-10 sm:pt-28 lg:pb-12">
           <div className="container-site">
             <div className="animate-fade-up">
               <Breadcrumbs
@@ -139,7 +139,7 @@ export default async function InsightPage({ params }: Props) {
       <div className="pt-16 lg:pt-24">
         <CtaBand />
       </div>
-      <div className="h-16 lg:h-24" />
+      <div className="h-12 lg:h-16" />
     </>
   );
 }

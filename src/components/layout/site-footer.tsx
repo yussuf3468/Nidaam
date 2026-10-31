@@ -4,6 +4,7 @@ import { Logo } from '@/components/brand/logo';
 import { InstagramIcon, LinkedInIcon, TikTokIcon, WhatsAppIcon } from '@/components/brand/social-icons';
 import { fullAddress, legalNav, mailUrl, site, telUrl, whatsappUrl } from '@/content/site';
 import { getService } from '@/content/services';
+import { CookieSettingsButton } from './cookie-banner';
 import { NairobiClock } from './nairobi-clock';
 
 const serviceLinks = [
@@ -18,7 +19,7 @@ const serviceLinks = [
 const companyLinks = [
   { label: 'About us', href: '/about' },
   { label: 'Solutions', href: '/solutions' },
-  { label: 'Case studies', href: '/case-studies' },
+  { label: 'Projects', href: '/case-studies' },
   { label: 'Insights', href: '/insights' },
   { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
@@ -54,7 +55,7 @@ export function SiteFooter() {
       <div className="container-site grid gap-12 py-14 lg:grid-cols-12 lg:gap-10 lg:py-16">
         <div className="lg:col-span-5">
           <Logo className="h-9" />
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">{site.identity}</p>
+          <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">{site.identity}</p>
           <ul className="mt-6 space-y-2.5 text-sm text-muted-foreground">
             <li>
               <a href={mailUrl} className="inline-flex items-center gap-3 transition-colors hover:text-foreground">
@@ -101,9 +102,12 @@ export function SiteFooter() {
         <p>
           © {new Date().getFullYear()} {site.name}. Registered in Kenya.
         </p>
-        <p>
-          Nairobi <NairobiClock />
-        </p>
+        <div className="flex items-center gap-6">
+          <CookieSettingsButton />
+          <p>
+            Nairobi <NairobiClock />
+          </p>
+        </div>
       </div>
     </footer>
   );

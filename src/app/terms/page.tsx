@@ -31,8 +31,8 @@ export default function TermsPage() {
         quotation, and the services, deliverables and obligations of each engagement are defined in its written agreement.
       </p>
       <p>
-        Case studies and testimonials marked “Illustrative” are representative examples of the work we do and the outcomes it is
-        designed to achieve. They do not describe named clients, and their figures are indicative.
+        Projects marked “Example project” describe how we would approach common problems. They are not client case studies and do
+        not report client results.
       </p>
 
       <h2>3. Intellectual property</h2>

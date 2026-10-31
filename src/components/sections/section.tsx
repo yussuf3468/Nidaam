@@ -49,7 +49,7 @@ export function SectionHeading({ eyebrow, title, description, aside, align = 'sp
         <H className={titleClass}>{title}</H>
       </div>
       {(description || aside) && (
-        <div className={cn('space-y-6', align === 'split' && 'lg:col-span-5 lg:pb-1')}>
+        <div className={cn('space-y-6', align === 'split' && 'lg:col-span-5 lg:pb-1', align === 'split' && !description && 'lg:justify-self-end')}>
           {description && <p className="max-w-xl text-base leading-relaxed text-pretty text-muted-foreground">{description}</p>}
           {aside}
         </div>

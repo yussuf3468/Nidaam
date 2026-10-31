@@ -11,7 +11,6 @@ import { groupOrder, serviceGroups, services, servicesInGroup } from '@/content/
 import { JsonLd } from '@/components/seo/json-ld';
 import { itemListSchema, webPageSchema } from '@/lib/schema';
 import { pageMetadata } from '@/lib/seo';
-import { pad2 } from '@/lib/utils';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Services',
@@ -75,7 +74,7 @@ export default function ServicesPage() {
         <Process />
       </div>
       <CtaBand />
-      <div className="h-16 lg:h-24" />
+      <div className="h-12 lg:h-16" />
     </>
   );
 }

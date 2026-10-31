@@ -1,32 +1,33 @@
 /*
- * ILLUSTRATIVE TESTIMONIALS
- * Written to show the kind of feedback the case studies describe. They are not
- * quotes from real clients and carry an "Illustrative" label while
- * `site.labelSampleContent` is true. Replace them with real, approved quotes.
+ * Real client testimonials, quoted exactly as published on the team's previous website
+ * (lenzro.com). Only add quotes that clients have approved for publication.
  */
 
-export type Testimonial = { quote: string; role: string; organisation: string; caseStudy?: string };
+export type Testimonial = { quote: string; name: string; role: string; organisation: string; project: string };
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      'Our bursars used to start every morning matching M-Pesa statements to learners. Now payments reconcile themselves and parents get a receipt before they have put their phone away.',
-    role: 'Finance Director',
-    organisation: 'Multi-campus school group, Nairobi',
-    caseStudy: 'school-group-platform',
+      'Working with the team was a great experience. They understood what we needed and delivered a professional solution that made a real difference for our business. Communication was smooth, and the final result exceeded our expectations.',
+    name: 'Ali Abdalla',
+    role: 'Business Owner',
+    organisation: 'Car Hire',
+    project: 'car-hire-platform',
   },
   {
     quote:
-      'They asked better questions about our operations than we had asked ourselves. What we got was not just software, it was a clearer way of running nine branches.',
-    role: 'Managing Director',
-    organisation: 'Retail chain, Kenya',
-    caseStudy: 'retail-operations-platform',
+      'The team was professional, responsive, and easy to work with throughout the project. They took the time to understand our needs and delivered quality work that we were genuinely happy with. I would definitely recommend working with them.',
+    name: 'Abdirahman Muqtar',
+    role: 'Barista Manager',
+    organisation: 'Islii',
+    project: 'islii-barista-school',
   },
   {
     quote:
-      'The handover was the part that impressed me most: documentation, credentials, training, everything on a checklist. We know exactly what we own.',
-    role: 'Operations Manager',
-    organisation: 'Regional distributor',
-    caseStudy: 'logistics-dispatch-platform',
+      'We appreciated the professionalism and attention to detail throughout our work together. The team was reliable, understood our goals, and delivered a solution that aligned well with our vision. It was a positive experience from start to finish.',
+    name: 'Mohamed Shariif',
+    role: 'Advisor',
+    organisation: 'Anchor Point Initiative',
+    project: 'anchor-point-initiative',
   },
 ];

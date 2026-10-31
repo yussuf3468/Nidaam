@@ -36,7 +36,7 @@ export default function HomePage() {
       <PricingApproach />
       <FaqSection items={homeFaqs} />
       <CtaBand />
-      <div className="h-16 lg:h-24" />
+      <div className="h-12 lg:h-16" />
     </>
   );
 }

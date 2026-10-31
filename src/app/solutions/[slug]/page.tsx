@@ -14,9 +14,8 @@ import { Tag } from '@/components/ui/badge';
 import { Button, ButtonArrow } from '@/components/ui/button';
 import { getCaseStudy } from '@/content/case-studies';
 import { getIndustry, industries } from '@/content/industries';
-import { getService, services, type Service } from '@/content/services';
+import { getService, type Service } from '@/content/services';
 import { pageMetadata } from '@/lib/seo';
-import { pad2 } from '@/lib/utils';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -129,7 +128,7 @@ export default async function IndustryPage({ params }: Props) {
         <Section>
           <div className="container-site grid gap-10 lg:grid-cols-12">
             <Reveal className="lg:col-span-5">
-              <Eyebrow>Example engagement</Eyebrow>
+              <Eyebrow>Example project</Eyebrow>
               <h2 className="mt-5 text-[clamp(1.75rem,2.5vw,2.5rem)] leading-[1.15] font-bold tracking-[-0.03em] text-balance">{study.title}</h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">{study.summary}</p>
             </Reveal>
@@ -160,7 +159,7 @@ export default async function IndustryPage({ params }: Props) {
       </Section>
 
       <CtaBand title={`Let’s build for your ${industry.name === 'Small & Medium Businesses' ? 'business' : 'organisation'}.`} />
-      <div className="h-16 lg:h-24" />
+      <div className="h-12 lg:h-16" />
     </>
   );
 }

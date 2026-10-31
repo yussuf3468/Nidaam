@@ -8,7 +8,7 @@ import { ArrowRight, Check, Minus } from 'lucide-react';
 import { icons } from '@/components/icons';
 import { Tag } from '@/components/ui/badge';
 import type { Industry } from '@/content/industries';
-import { cn, pad2 } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 /** Industry list (tabs) with a detail panel. Hovering a tab previews it on desktop. */
 export function IndustriesExplorer({ industries }: { industries: Industry[] }) {
@@ -20,7 +20,7 @@ export function IndustriesExplorer({ industries }: { industries: Industry[] }) {
         aria-label="Industries"
         className="scrollbar-none -mx-4 flex gap-2 overflow-x-auto px-4 lg:col-span-4 lg:mx-0 lg:flex-col lg:gap-0 lg:overflow-visible lg:px-0"
       >
-        {industries.map((industry, i) => {
+        {industries.map((industry) => {
           const Icon = icons[industry.icon];
           return (
             <Tabs.Trigger

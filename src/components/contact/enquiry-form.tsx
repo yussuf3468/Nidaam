@@ -5,8 +5,9 @@ import { useState } from 'react';
 import { useForm, type UseFormRegister } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AnimatePresence, m } from 'motion/react';
-import { CircleCheck, LoaderCircle, TriangleAlert } from 'lucide-react';
+import { CircleCheck, LoaderCircle, Mail, TriangleAlert } from 'lucide-react';
 import { submitEnquiry } from '@/app/contact/actions';
+import { WhatsAppIcon } from '@/components/brand/social-icons';
 import { Button, ButtonArrow } from '@/components/ui/button';
 import { FieldError, Input, Label, Select, Textarea } from '@/components/ui/form-controls';
 import {
@@ -14,10 +15,12 @@ import {
   companySizes,
   contactMethods,
   enquirySchema,
+  formatEnquiry,
   projectTypes,
   timelines,
   type EnquiryInput,
 } from '@/lib/enquiry';
+import { site, whatsappUrl } from '@/content/site';
 import { cn } from '@/lib/utils';
 
 /** Radio options rendered as selectable chips. */
@@ -63,6 +66,8 @@ function ChoiceGroup({
 export function EnquiryForm() {
   const [status, setStatus] = useState<'idle' | 'sent' | 'error'>('idle');
   const [serverError, setServerError] = useState('');
+  // Filled when online sending is not configured: the same enquiry, ready for WhatsApp or email.
+  const [handoff, setHandoff] = useState<{ whatsapp: string; email: string } | null>(null);
   const {
     register,
     handleSubmit,
@@ -76,7 +81,11 @@ export function EnquiryForm() {
       phone: '',
       company: '',
       message: '',
-      discoveryCall: true,
+      discoveryCall: false,
+      companySize: '',
+      projectType: '',
+      budget: '',
+      timeline: '',
       preferredContact: 'Email',
       website: '',
     },
@@ -84,6 +93,7 @@ export function EnquiryForm() {
 
   const onSubmit = handleSubmit(async (values) => {
     setServerError('');
+    setHandoff(null);
     const result = await submitEnquiry(values);
     if (result.ok) {
       setStatus('sent');
@@ -91,6 +101,13 @@ export function EnquiryForm() {
     } else {
       setStatus('error');
       setServerError(result.error);
+      if (result.notConfigured) {
+        const text = formatEnquiry(values);
+        setHandoff({
+          whatsapp: `${whatsappUrl}?text=${encodeURIComponent(`Hello Nidaam Solutions, here is my project enquiry.\n\n${text}`)}`,
+          email: `mailto:${site.contact.email}?subject=${encodeURIComponent(`Project enquiry from ${values.name}`)}&body=${encodeURIComponent(text)}`,
+        });
+      }
     }
   });
 
@@ -133,7 +150,7 @@ export function EnquiryForm() {
                 <FieldError id="name-error" message={errors.name?.message} />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email">Work email *</Label>
+                <Label htmlFor="email">Email *</Label>
                 <Input id="email" type="email" autoComplete="email" {...register('email')} {...describe('email')} />
                 <FieldError id="email-error" message={errors.email?.message} />
               </div>
@@ -147,9 +164,9 @@ export function EnquiryForm() {
                 <Input id="company" autoComplete="organization" {...register('company')} />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="companySize">Organisation size *</Label>
+                <Label htmlFor="companySize">Organisation size</Label>
                 <Select id="companySize" defaultValue="" {...register('companySize')} {...describe('companySize')}>
-                  <option value="" disabled>
+                  <option value="">
                     Choose one
                   </option>
                   {companySizes.map((o) => (
@@ -159,9 +176,9 @@ export function EnquiryForm() {
                 <FieldError id="companySize-error" message={errors.companySize?.message} />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="projectType">Project type *</Label>
+                <Label htmlFor="projectType">Project type</Label>
                 <Select id="projectType" defaultValue="" {...register('projectType')} {...describe('projectType')}>
-                  <option value="" disabled>
+                  <option value="">
                     Choose one
                   </option>
                   {projectTypes.map((o) => (
@@ -172,8 +189,8 @@ export function EnquiryForm() {
               </div>
             </div>
 
-            <ChoiceGroup name="budget" legend="Estimated budget *" options={budgets} register={register} error={errors.budget?.message} />
-            <ChoiceGroup name="timeline" legend="When would you like to start? *" options={timelines} register={register} error={errors.timeline?.message} />
+            <ChoiceGroup name="budget" legend="Estimated budget (optional)" options={budgets} register={register} error={errors.budget?.message} />
+            <ChoiceGroup name="timeline" legend="When would you like to start? (optional)" options={timelines} register={register} error={errors.timeline?.message} />
 
             <div className="space-y-2">
               <Label htmlFor="message">What would you like to achieve? *</Label>
@@ -219,11 +236,31 @@ export function EnquiryForm() {
               <FieldError id="consent-error" message={errors.consent?.message} />
             </div>
 
-            {status === 'error' && serverError && (
+            {status === 'error' && serverError && !handoff && (
               <p role="alert" className="flex items-start gap-3 rounded-2xl border border-destructive/30 bg-destructive/5 p-4 text-sm">
                 <TriangleAlert className="mt-0.5 size-4 shrink-0 text-destructive" aria-hidden />
                 {serverError}
               </p>
+            )}
+
+            {handoff && (
+              <div role="alert" className="rounded-2xl border border-border bg-background p-5">
+                <p className="text-sm text-muted-foreground">{serverError}</p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Button asChild size="sm" className="bg-[#25D366] text-white hover:bg-[#25D366]/90">
+                    <a href={handoff.whatsapp} target="_blank" rel="noopener noreferrer">
+                      <WhatsAppIcon className="size-4" />
+                      Send on WhatsApp
+                    </a>
+                  </Button>
+                  <Button asChild size="sm" variant="secondary">
+                    <a href={handoff.email}>
+                      <Mail className="size-4" aria-hidden />
+                      Send by email
+                    </a>
+                  </Button>
+                </div>
+              </div>
             )}
 
             <div className="flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">

@@ -138,7 +138,7 @@ export default async function ServicePage({ params }: Props) {
         <div className="container-site">
           <SectionHeading eyebrow="Capabilities" title="What we deliver." />
           <RevealGroup className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-2 xl:grid-cols-3">
-            {service.features.map((f, i) => (
+            {service.features.map((f) => (
               <RevealItem key={f.title} className="bg-card p-7 sm:p-8">
                 <h3 className="mt-8 text-xl font-bold tracking-tight">{f.title}</h3>
                 <p className="mt-2 leading-relaxed text-muted-foreground">{f.body}</p>
@@ -224,7 +224,7 @@ export default async function ServicePage({ params }: Props) {
       {related.length > 0 && (
         <Section>
           <div className="container-site">
-            <SectionHeading eyebrow="Related work" title="Systems like this in practice." />
+            <SectionHeading eyebrow="Example projects" title="How we would approach this." />
             <RevealGroup className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {related.map((study) => (
                 <RevealItem key={study.slug}>
@@ -256,7 +256,7 @@ export default async function ServicePage({ params }: Props) {
       <div className="pt-16 lg:pt-24">
         <CtaBand title={`Ready to talk about ${service.title}?`} />
       </div>
-      <div className="h-16 lg:h-24" />
+      <div className="h-12 lg:h-16" />
     </>
   );
 }

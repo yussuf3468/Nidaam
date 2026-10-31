@@ -15,7 +15,7 @@ export default function PrivacyPage() {
     <LegalPage
       title="Privacy Policy"
       path="/privacy"
-      updated="2026-10-28"
+      updated="2026-10-31"
       intro="This policy explains what personal data Nidaam Solutions collects through this website and in the course of our work, why we collect it, how we protect it, and the rights you have under Kenya’s Data Protection Act, 2019."
     >
       <h2>1. Who we are</h2>
@@ -28,8 +28,9 @@ export default function PrivacyPage() {
       <h2>2. What we collect</h2>
       <ul>
         <li>
-          <strong>Enquiries.</strong> When you use our contact form or write to us: your name, email address, phone number,
-          organisation, organisation size, project type, budget range, timeline and the details you choose to share.
+          <strong>Enquiries.</strong> When you use our contact form or write to us: your name, email address and message, plus
+          anything optional you choose to add, such as your phone number, organisation, project type, budget range or timeline. Only
+          your name, email address and message are required.
         </li>
         <li>
           <strong>Client relationships.</strong> Contact details of the people we work with, and records of quotations,
@@ -40,8 +41,8 @@ export default function PrivacyPage() {
           the pages requested, to keep the website secure and working.
         </li>
         <li>
-          <strong>Preferences.</strong> If you switch between light and dark mode, your choice is stored in your own browser. We do
-          not use advertising or tracking cookies on this website.
+          <strong>Preferences.</strong> Your light or dark mode choice and your cookie choice are stored in your own browser. We do
+          not use advertising or tracking cookies, and we run no analytics. See our <Link href="/cookies">Cookie Policy</Link>.
         </li>
       </ul>
 
@@ -56,8 +57,27 @@ export default function PrivacyPage() {
 
       <h2>4. Who we share it with</h2>
       <p>
-        We share personal data only with service providers who help us operate, such as website hosting, email delivery and
-        accounting, under agreements that require them to protect it, and with authorities where the law requires.
+        We share personal data only with service providers who help us operate, under agreements that require them to protect it,
+        and with authorities where the law requires. These are:
+      </p>
+      <ul>
+        <li>
+          <strong>Website hosting</strong>, which serves this website and keeps its standard server logs.
+        </li>
+        <li>
+          <strong>Email delivery</strong> (Resend), which delivers enquiries from our contact form to our inbox when online sending
+          is switched on.
+        </li>
+        <li>
+          <strong>WhatsApp or your email provider</strong>, only if you choose to send your enquiry that way.
+        </li>
+        <li>
+          <strong>Accounting and payments</strong>, for clients we invoice.
+        </li>
+      </ul>
+      <p>
+        This website loads no third-party analytics, advertising, social media or tracking scripts, and our fonts are served from our
+        own site.
       </p>
 
       <h2>5. Transfers outside Kenya</h2>

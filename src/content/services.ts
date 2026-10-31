@@ -480,7 +480,7 @@ export const services: Service[] = [
     benefits: [
       { title: 'Hours returned', body: 'Teams reclaim time for customers and decisions.' },
       { title: 'Fewer errors', body: 'No re-keying means no transcription mistakes.' },
-      { title: 'Faster cycles', body: 'Approvals and reports that took days happen in minutes.' },
+      { title: 'Faster cycles', body: 'Approvals and reports move faster, with no chasing.' },
       { title: 'Visible processes', body: 'Every step is logged and auditable.' },
     ],
     deliverables: [
@@ -623,7 +623,7 @@ export const services: Service[] = [
     benefits: [
       { title: 'No more re-typing', body: 'Data entered once flows everywhere it is needed.' },
       { title: 'Fewer incidents', body: 'Defensive patterns absorb third-party outages.' },
-      { title: 'Faster partnerships', body: 'Partners integrate with you in days, not months.' },
+      { title: 'Faster partnerships', body: 'Clear documentation makes partner integrations quicker.' },
       { title: 'Clear audit trail', body: 'Every transaction is logged end to end.' },
     ],
     deliverables: ['Integration design and data mapping', 'Production integrations with monitoring', 'API specification and documentation', 'Migration and reconciliation reports', 'Handover notes and credentials'],

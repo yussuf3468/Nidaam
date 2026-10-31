@@ -20,6 +20,13 @@ export const timelines = ['As soon as possible', 'Within 1 month', '1–3 months
 
 export const contactMethods = ['Email', 'Phone call', 'WhatsApp'] as const;
 
+/** An optional choice: one of the listed values, or '' when left blank. */
+const optionalChoice = <T extends readonly [string, ...string[]]>(values: T) => z.union([z.enum(values), z.literal('')]);
+
+/*
+ * Data minimisation: only name, email, message and consent are required. Everything
+ * else is optional and helps us reply with something useful.
+ */
 export const enquirySchema = z.object({
   name: z.string().trim().min(2, 'Please enter your name.').max(120),
   email: z.email('Please enter a valid email address.').max(200),
@@ -29,10 +36,10 @@ export const enquirySchema = z.object({
     .max(30)
     .refine((v) => v === '' || /^[+\d][\d\s()-]{6,}$/.test(v), 'Please enter a valid phone number.'),
   company: z.string().trim().max(160),
-  companySize: z.enum(companySizes, 'Please choose your organisation size.'),
-  projectType: z.enum(projectTypes, 'Please choose a project type.'),
-  budget: z.enum(budgets, 'Please choose a budget range.'),
-  timeline: z.enum(timelines, 'Please choose a timeline.'),
+  companySize: optionalChoice(companySizes),
+  projectType: optionalChoice(projectTypes),
+  budget: optionalChoice(budgets),
+  timeline: optionalChoice(timelines),
   message: z.string().trim().min(20, 'Please tell us a little more (at least 20 characters).').max(5000),
   discoveryCall: z.boolean(),
   preferredContact: z.enum(contactMethods),
@@ -48,10 +55,10 @@ export function formatEnquiry(e: EnquiryInput) {
     `Name: ${e.name}`,
     `Email: ${e.email}`,
     `Phone: ${e.phone || 'Not given'}`,
-    `Organisation: ${e.company || 'Not given'} (${e.companySize})`,
-    `Project type: ${e.projectType}`,
-    `Budget: ${e.budget}`,
-    `Timeline: ${e.timeline}`,
+    `Organisation: ${e.company || 'Not given'}${e.companySize ? ` (${e.companySize})` : ''}`,
+    `Project type: ${e.projectType || 'Not given'}`,
+    `Budget: ${e.budget || 'Not given'}`,
+    `Timeline: ${e.timeline || 'Not given'}`,
     `Discovery call requested: ${e.discoveryCall ? 'Yes' : 'No'}`,
     `Preferred contact: ${e.preferredContact}`,
     '',

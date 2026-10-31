@@ -67,7 +67,7 @@ export default async function CategoryPage({ params }: Props) {
       </Section>
 
       <CtaBand />
-      <div className="h-16 lg:h-24" />
+      <div className="h-12 lg:h-16" />
     </>
   );
 }

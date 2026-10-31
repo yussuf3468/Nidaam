@@ -47,25 +47,25 @@ type PageHeroProps = {
 /** Hero for inner pages: breadcrumb, eyebrow, large title, intro and optional side panel. */
 export function PageHero({ crumbs, eyebrow, title, description, actions, aside, children }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden pt-28 pb-16 sm:pt-32 lg:pt-40 lg:pb-24">
+    <section className="relative overflow-hidden pt-24 pb-12 sm:pt-28 lg:pb-16">
       <div className="container-site">
         <div className="animate-fade-up">
           <Breadcrumbs items={crumbs} />
         </div>
-        <div className={aside ? 'mt-10 grid gap-12 lg:grid-cols-12 lg:items-end lg:gap-10' : 'mt-10'}>
+        <div className={aside ? 'mt-8 grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-10' : 'mt-8'}>
           <div className={aside ? 'lg:col-span-7' : 'max-w-5xl'}>
             <div className="animate-fade-up [animation-delay:60ms]">
               <Eyebrow>{eyebrow}</Eyebrow>
             </div>
-            <h1 className="mt-6 animate-fade-up text-[clamp(2.125rem,3.3vw,3.375rem)] leading-[1.08] font-bold tracking-[-0.035em] text-balance [animation-delay:120ms]">
+            <h1 className="mt-3 animate-fade-up text-[clamp(2.125rem,3.3vw,3.375rem)] leading-[1.08] font-bold tracking-[-0.035em] text-balance [animation-delay:120ms]">
               {title}
             </h1>
             {description && (
-              <p className="mt-8 max-w-2xl animate-fade-up text-base leading-relaxed text-pretty text-muted-foreground [animation-delay:200ms] sm:text-lg">
+              <p className="mt-5 max-w-2xl animate-fade-up text-base leading-relaxed text-pretty text-muted-foreground [animation-delay:200ms] sm:text-lg">
                 {description}
               </p>
             )}
-            {actions && <div className="mt-10 flex animate-fade-up flex-wrap gap-3 [animation-delay:280ms]">{actions}</div>}
+            {actions && <div className="mt-8 flex animate-fade-up flex-wrap gap-3 [animation-delay:280ms]">{actions}</div>}
           </div>
           {aside && <div className="animate-fade-up [animation-delay:300ms] lg:col-span-5">{aside}</div>}
         </div>

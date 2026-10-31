@@ -13,17 +13,19 @@ export function FeaturedSolutions({ showLink = true }: { showLink?: boolean }) {
         <SectionHeading
           eyebrow="Featured solutions"
           title="Proven foundations, shaped to your operations."
-          description="We reuse what has been proven across projects, so your budget goes into what makes your organisation different instead of rebuilding logins and reports from scratch."
+          description="We build on reusable foundations such as sign-in, roles, payments and reports, so your budget goes into what makes your organisation different."
           aside={
-            <Button asChild variant="outline">
-              <Link href="/solutions">
-                Solutions by industry
-                <ButtonArrow />
-              </Link>
-            </Button>
+            showLink && (
+              <Button asChild variant="outline">
+                <Link href="/solutions">
+                  Solutions by industry
+                  <ButtonArrow />
+                </Link>
+              </Button>
+            )
           }
         />
-        <RevealGroup className="mt-14 grid gap-4 lg:grid-cols-2">
+        <RevealGroup className="mt-12 grid gap-4 lg:grid-cols-2">
           {solutions.map((solution) => (
             <RevealItem key={solution.title}>
               <Link
@@ -31,9 +33,10 @@ export function FeaturedSolutions({ showLink = true }: { showLink?: boolean }) {
                 data-spotlight
                 className="spotlight group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card transition-[box-shadow,border-color] duration-500 hover:border-border-strong hover:shadow-lift"
               >
-                <div className="bg-dots relative overflow-hidden border-b border-border bg-background/60 px-6 pt-8 sm:px-10 sm:pt-10">
-                  <div className="translate-y-3 transition-transform duration-700 ease-out-expo group-hover:translate-y-0">
-                    <MockScreen variant={solution.visual} className="mx-auto max-w-[620px]" />
+                {/* Fixed-height picture area, so every card's text starts at the same line. */}
+                <div className="bg-dots relative h-56 overflow-hidden border-b border-border bg-background/60 px-6 pt-8 sm:h-72 sm:px-10 sm:pt-10 xl:h-80">
+                  <div className="translate-y-2 transition-transform duration-700 ease-out-expo group-hover:translate-y-0">
+                    <MockScreen variant={solution.visual} className="mx-auto max-w-155" />
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col p-6 sm:p-8">

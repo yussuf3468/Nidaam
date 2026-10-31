@@ -49,12 +49,6 @@ export const site = {
     tiktok: 'https://www.tiktok.com/@nidaamsoftware',
   },
 
-  /**
-   * Case studies and testimonials in /src/content are illustrative examples written
-   * for launch. While this is true, they carry a small "Illustrative" label on the
-   * site. Replace them with real client work, then set this to false.
-   */
-  labelSampleContent: true,
 } as const;
 
 export const whatsappUrl = `https://wa.me/${site.contact.phone.replace(/\D/g, '')}`;
@@ -68,7 +62,7 @@ export type NavItem = { label: string; href: string };
 export const mainNav: NavItem[] = [
   { label: 'Services', href: '/services' },
   { label: 'Solutions', href: '/solutions' },
-  { label: 'Case studies', href: '/case-studies' },
+  { label: 'Projects', href: '/case-studies' },
   { label: 'About', href: '/about' },
   { label: 'Insights', href: '/insights' },
 ];
@@ -82,4 +76,5 @@ export const secondaryNav: NavItem[] = [
 export const legalNav: NavItem[] = [
   { label: 'Privacy Policy', href: '/privacy' },
   { label: 'Terms of Service', href: '/terms' },
+  { label: 'Cookie Policy', href: '/cookies' },
 ];

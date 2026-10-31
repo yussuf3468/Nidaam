@@ -32,7 +32,7 @@ const nextSteps = [
 
 export default function ContactPage() {
   return (
-    <section className="relative overflow-hidden pt-28 pb-20 sm:pt-32 lg:pt-40 lg:pb-28">
+    <section className="relative overflow-hidden pt-24 pb-16 sm:pt-28 lg:pb-20">
       <JsonLd
         data={webPageSchema({
           type: 'ContactPage',

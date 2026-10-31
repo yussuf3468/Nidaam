@@ -65,7 +65,7 @@ export default async function InsightsPage() {
       </Section>
 
       <CtaBand title="Have a question we have not written about?" description="Ask us. If it is useful to you, it is probably useful to others, and we may write about it next." />
-      <div className="h-16 lg:h-24" />
+      <div className="h-12 lg:h-16" />
     </>
   );
 }

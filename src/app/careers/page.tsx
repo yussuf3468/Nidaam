@@ -6,7 +6,6 @@ import { Eyebrow, Section, SectionHeading } from '@/components/sections/section'
 import { Button } from '@/components/ui/button';
 import { site } from '@/content/site';
 import { pageMetadata } from '@/lib/seo';
-import { pad2 } from '@/lib/utils';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Careers',
@@ -29,8 +28,8 @@ const offer = [
   'Mentorship and code review from experienced engineers',
   'Time to learn, and a team that shares what it knows',
   'Modern tools and a disciplined engineering process',
-  'Hybrid working from our Nairobi base',
-  'Fair pay, discussed openly at offer stage',
+  'Room to grow as the company grows',
+  'A clear, written offer at the end of the process',
 ];
 
 const steps = [
@@ -73,7 +72,7 @@ export default function CareersPage() {
         <div className="container-site">
           <SectionHeading eyebrow="Culture" title="How we work together." />
           <RevealGroup className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {culture.map((c, i) => (
+            {culture.map((c) => (
               <RevealItem key={c.title} className="rounded-3xl border border-border bg-card p-7">
                 <h3 className="mt-8 text-xl font-bold tracking-tight">{c.title}</h3>
                 <p className="mt-2 leading-relaxed text-muted-foreground">{c.body}</p>
