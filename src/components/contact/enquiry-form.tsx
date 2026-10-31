@@ -7,7 +7,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { AnimatePresence, m } from 'motion/react';
 import { CircleCheck, LoaderCircle, Mail, TriangleAlert } from 'lucide-react';
 import { submitEnquiry } from '@/app/contact/actions';
-import { WhatsAppIcon } from '@/components/brand/social-icons';
 import { Button, ButtonArrow } from '@/components/ui/button';
 import { FieldError, Input, Label, Select, Textarea } from '@/components/ui/form-controls';
 import {
@@ -20,7 +19,7 @@ import {
   timelines,
   type EnquiryInput,
 } from '@/lib/enquiry';
-import { site, whatsappUrl } from '@/content/site';
+import { site } from '@/content/site';
 import { cn } from '@/lib/utils';
 
 /** Radio options rendered as selectable chips. */
@@ -66,8 +65,8 @@ function ChoiceGroup({
 export function EnquiryForm() {
   const [status, setStatus] = useState<'idle' | 'sent' | 'error'>('idle');
   const [serverError, setServerError] = useState('');
-  // Filled when online sending is not configured: the same enquiry, ready for WhatsApp or email.
-  const [handoff, setHandoff] = useState<{ whatsapp: string; email: string } | null>(null);
+  // Set when online sending is not configured: the enquiry opened in the visitor's email app.
+  const [mailto, setMailto] = useState('');
   const {
     register,
     handleSubmit,
@@ -93,21 +92,20 @@ export function EnquiryForm() {
 
   const onSubmit = handleSubmit(async (values) => {
     setServerError('');
-    setHandoff(null);
+    setMailto('');
     const result = await submitEnquiry(values);
     if (result.ok) {
       setStatus('sent');
       reset();
+    } else if (result.notConfigured) {
+      // No server-side email yet: open the visitor's email app with the enquiry filled in.
+      const href = `mailto:${site.contact.email}?subject=${encodeURIComponent(`Project enquiry from ${values.name}`)}&body=${encodeURIComponent(formatEnquiry(values))}`;
+      setMailto(href);
+      setStatus('error');
+      window.location.assign(href);
     } else {
       setStatus('error');
       setServerError(result.error);
-      if (result.notConfigured) {
-        const text = formatEnquiry(values);
-        setHandoff({
-          whatsapp: `${whatsappUrl}?text=${encodeURIComponent(`Hello Nidaam Solutions, here is my project enquiry.\n\n${text}`)}`,
-          email: `mailto:${site.contact.email}?subject=${encodeURIComponent(`Project enquiry from ${values.name}`)}&body=${encodeURIComponent(text)}`,
-        });
-      }
     }
   });
 
@@ -236,31 +234,24 @@ export function EnquiryForm() {
               <FieldError id="consent-error" message={errors.consent?.message} />
             </div>
 
-            {status === 'error' && serverError && !handoff && (
+            {status === 'error' && serverError && (
               <p role="alert" className="flex items-start gap-3 rounded-2xl border border-destructive/30 bg-destructive/5 p-4 text-sm">
                 <TriangleAlert className="mt-0.5 size-4 shrink-0 text-destructive" aria-hidden />
                 {serverError}
               </p>
             )}
 
-            {handoff && (
-              <div role="alert" className="rounded-2xl border border-border bg-background p-5">
-                <p className="text-sm text-muted-foreground">{serverError}</p>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  <Button asChild size="sm" className="bg-[#25D366] text-white hover:bg-[#25D366]/90">
-                    <a href={handoff.whatsapp} target="_blank" rel="noopener noreferrer">
-                      <WhatsAppIcon className="size-4" />
-                      Send on WhatsApp
-                    </a>
-                  </Button>
-                  <Button asChild size="sm" variant="secondary">
-                    <a href={handoff.email}>
-                      <Mail className="size-4" aria-hidden />
-                      Send by email
-                    </a>
-                  </Button>
-                </div>
-              </div>
+            {mailto && (
+              <p role="status" className="flex items-start gap-3 rounded-2xl border border-border bg-background p-4 text-sm text-muted-foreground">
+                <Mail className="mt-0.5 size-4 shrink-0 text-brand-ink" aria-hidden />
+                <span>
+                  Your email app has opened with your enquiry filled in. Press send there to deliver it. Nothing opened?{' '}
+                  <a href={mailto} className="font-semibold text-foreground underline underline-offset-4">
+                    Open it again
+                  </a>{' '}
+                  or write to {site.contact.email}.
+                </span>
+              </p>
             )}
 
             <div className="flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">

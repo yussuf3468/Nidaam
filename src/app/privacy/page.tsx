@@ -65,11 +65,10 @@ export default function PrivacyPage() {
           <strong>Website hosting</strong>, which serves this website and keeps its standard server logs.
         </li>
         <li>
-          <strong>Email delivery</strong> (Resend), which delivers enquiries from our contact form to our inbox when online sending
-          is switched on.
+          <strong>Our email provider</strong>, which delivers enquiries from our contact form to our inbox.
         </li>
         <li>
-          <strong>WhatsApp or your email provider</strong>, only if you choose to send your enquiry that way.
+          <strong>Your own email provider</strong>, if the form opens your email app so you can send the enquiry yourself.
         </li>
         <li>
           <strong>Accounting and payments</strong>, for clients we invoice.
