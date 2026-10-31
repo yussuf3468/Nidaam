@@ -15,7 +15,7 @@ const ORG_ID = `${site.url}/#organization`;
 const WEBSITE_ID = `${site.url}/#website`;
 
 export function organizationSchema() {
-  const sameAs = Object.values(site.social).filter(Boolean);
+  const sameAs = [...Object.values(site.social), site.googleBusinessProfile].filter(Boolean);
   return {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'ProfessionalService'],

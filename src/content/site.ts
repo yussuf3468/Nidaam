@@ -9,7 +9,9 @@
 export const site = {
   name: 'Nidaam Solutions',
   shortName: 'Nidaam',
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nidaam.co.ke').replace(/\/$/, ''),
+  // The live site is served on www (nidaam.co.ke redirects there), so canonical URLs,
+  // the sitemap and structured data must use www too.
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.nidaam.co.ke').replace(/\/$/, ''),
   locale: 'en_KE',
   foundingDate: '2026-10-25',
   title: 'Nidaam Solutions | Software Development Company in Nairobi, Kenya',
@@ -32,15 +34,21 @@ export const site = {
     /** International format. Also builds the WhatsApp and tel: links. */
     phone: '+254722261776',
     phoneDisplay: '+254 722 261 776',
-    street: 'Hodo Souk, Captain Mungai Street',
+    // Matches the Google Business Profile exactly (name, address and phone must agree everywhere).
+    street: 'Hodo Souk, 18 Captain Mungai Street',
     locality: 'Eastleigh',
     city: 'Nairobi',
     country: 'Kenya',
     countryCode: 'KE',
     hours: 'Monday to Friday, 8:00 to 17:00 EAT',
-    mapsUrl:
-      'https://www.google.com/maps/search/?api=1&query=Hodo+Souk%2C+Captain+Mungai+Street%2C+Eastleigh%2C+Nairobi',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Nidaam+Solutions%2C+Hodo+Souk%2C+18+Captain+Mungai+St%2C+Nairobi',
   },
+
+  /**
+   * Your Google Business Profile link (Maps > your profile > Share > Copy link).
+   * Added to structured data so Google connects this website to the Maps listing.
+   */
+  googleBusinessProfile: '',
 
   /** Leave a link as '' to hide it everywhere. */
   social: {

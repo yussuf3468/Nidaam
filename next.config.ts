@@ -19,6 +19,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Send the default Vercel address to the real domain, so Google sees one site, not two.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'nidaam.vercel.app' }],
+        destination: 'https://www.nidaam.co.ke/:path*',
+        permanent: true,
+      },
       { source: '/get-started', destination: '/contact', permanent: false },
       { source: '/blog', destination: '/insights', permanent: true },
       { source: '/work', destination: '/case-studies', permanent: true },
