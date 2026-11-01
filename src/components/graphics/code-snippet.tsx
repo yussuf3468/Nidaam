@@ -31,7 +31,7 @@ export function CodeSnippet({ className }: { className?: string }) {
         <i className="size-2 rounded-full bg-foreground/15" />
         <i className="size-2 rounded-full bg-foreground/15" />
         <span className="ml-3 font-mono text-[0.6875rem] text-muted-foreground">reconcile.ts</span>
-        <span className="ml-auto flex items-center gap-1.5 font-mono text-[0.6875rem] text-success">
+        <span className="ml-auto flex items-center gap-1.5 font-mono text-[0.6875rem] text-success-ink">
           <span className="size-1.5 rounded-full bg-success" />
           tests passing
         </span>

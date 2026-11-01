@@ -45,7 +45,7 @@ export default async function CategoryPage({ params }: Props) {
         eyebrow={`${posts.length} ${posts.length === 1 ? 'article' : 'articles'}`}
         title={match.name}
       >
-        <div className="mt-12 animate-fade-up [animation-delay:240ms]">
+        <div className="mt-12 animate-rise [animation-delay:240ms]">
           <CategoryNav categories={categories} active={match.slug} />
         </div>
       </PageHero>

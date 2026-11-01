@@ -45,7 +45,7 @@ export default async function InsightPage({ params }: Props) {
       <article>
         <header className="relative overflow-hidden pt-24 pb-10 sm:pt-28 lg:pb-12">
           <div className="container-site">
-            <div className="animate-fade-up">
+            <div className="animate-rise">
               <Breadcrumbs
                 items={[
                   { name: 'Insights', path: '/insights' },
@@ -54,19 +54,19 @@ export default async function InsightPage({ params }: Props) {
               />
             </div>
             <div className="mt-10 max-w-5xl">
-              <p className="animate-fade-up font-mono text-xs text-muted-foreground [animation-delay:60ms]">
+              <p className="animate-rise font-mono text-xs text-muted-foreground [animation-delay:60ms]">
                 <Link href={`/insights/category/${categorySlug(post.category)}`} className="text-brand-ink uppercase hover:underline">
                   {post.category}
                 </Link>{' '}
                 · <time dateTime={post.date}>{formatDate(post.date)}</time> · {readingMinutes(post.body)} min read
               </p>
-              <h1 className="mt-6 animate-fade-up text-[clamp(2rem,3vw,3.125rem)] leading-[1.1] font-bold tracking-[-0.035em] text-balance [animation-delay:120ms]">
+              <h1 className="mt-6 animate-rise text-[clamp(2rem,3vw,3.125rem)] leading-[1.1] font-bold tracking-[-0.035em] text-balance [animation-delay:120ms]">
                 {post.title}
               </h1>
-              <p className="mt-6 max-w-3xl animate-fade-up text-base leading-relaxed text-muted-foreground [animation-delay:200ms] sm:text-lg">
+              <p className="mt-6 max-w-3xl animate-rise text-base leading-relaxed text-muted-foreground [animation-delay:200ms] sm:text-lg">
                 {post.excerpt}
               </p>
-              <p className="mt-8 animate-fade-up text-sm [animation-delay:260ms]">
+              <p className="mt-8 animate-rise text-sm [animation-delay:260ms]">
                 By <span className="font-semibold">{post.author}</span>
               </p>
             </div>

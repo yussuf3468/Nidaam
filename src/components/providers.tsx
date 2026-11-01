@@ -3,15 +3,27 @@
 import { useEffect, type ReactNode } from 'react';
 import { ThemeProvider } from 'next-themes';
 import { LazyMotion, MotionConfig, domAnimation } from 'motion/react';
-import Lenis from 'lenis';
+import { RevealObserver } from '@/components/motion/reveal-observer';
 
-/** Inertial smooth scrolling on desktop; off for touch and reduced-motion users. */
+/**
+ * Inertial smooth scrolling on desktop; off for touch and reduced-motion users.
+ * Lenis is loaded on demand, so phones never download or run it.
+ */
 function SmoothScroll() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (!window.matchMedia('(pointer: fine)').matches) return;
-    const lenis = new Lenis({ autoRaf: true, lerp: 0.12, anchors: { offset: -96 } });
-    return () => lenis.destroy();
+    let destroy: (() => void) | undefined;
+    let cancelled = false;
+    import('lenis').then(({ default: Lenis }) => {
+      if (cancelled) return;
+      const lenis = new Lenis({ autoRaf: true, lerp: 0.12, anchors: { offset: -96 } });
+      destroy = () => lenis.destroy();
+    });
+    return () => {
+      cancelled = true;
+      destroy?.();
+    };
   }, []);
   return null;
 }
@@ -40,6 +52,7 @@ export function Providers({ children }: { children: ReactNode }) {
         <MotionConfig reducedMotion="user" transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
           <SmoothScroll />
           <PointerEffects />
+          <RevealObserver />
           {children}
         </MotionConfig>
       </LazyMotion>

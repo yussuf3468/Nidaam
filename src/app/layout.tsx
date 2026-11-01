@@ -71,6 +71,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-KE" suppressHydrationWarning className={`${manrope.variable} ${outfit.variable} ${jetbrains.variable}`}>
       <body id="top">
+        {/* Marks that JavaScript runs, so scroll reveals may start hidden (content stays visible without it). */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <Providers>
           <a
             href="#main"

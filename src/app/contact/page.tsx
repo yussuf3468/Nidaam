@@ -42,12 +42,12 @@ export default function ContactPage() {
         })}
       />
       <div className="container-site">
-        <div className="animate-fade-up">
+        <div className="animate-rise">
           <Breadcrumbs items={[{ name: 'Contact', path: '/contact' }]} />
         </div>
         <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="space-y-10 lg:col-span-5">
-            <div className="animate-fade-up [animation-delay:60ms]">
+            <div className="animate-rise [animation-delay:60ms]">
               <Eyebrow>Contact</Eyebrow>
               <h1 className="mt-6 text-[clamp(2.125rem,3.3vw,3.375rem)] leading-[1.08] font-bold tracking-[-0.035em] text-balance">
                 Let’s build something that lasts.
@@ -57,7 +57,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <ul className="grid animate-fade-up gap-3 [animation-delay:140ms] sm:grid-cols-3 lg:grid-cols-1 2xl:grid-cols-3">
+            <ul className="grid animate-rise gap-3 [animation-delay:140ms] sm:grid-cols-3 lg:grid-cols-1 2xl:grid-cols-3">
               {channels.map(({ label, value, href, Icon, external }) => (
                 <li key={label}>
                   <a
@@ -75,11 +75,11 @@ export default function ContactPage() {
               ))}
             </ul>
 
-            <div className="animate-fade-up [animation-delay:200ms]">
+            <div className="animate-rise [animation-delay:200ms]">
               <MapCard />
             </div>
 
-            <dl className="grid animate-fade-up gap-4 rounded-3xl border border-border bg-card p-6 text-sm [animation-delay:240ms] sm:grid-cols-2">
+            <dl className="grid animate-rise gap-4 rounded-3xl border border-border bg-card p-6 text-sm [animation-delay:240ms] sm:grid-cols-2">
               <div className="flex gap-3">
                 <Clock className="mt-0.5 size-4 shrink-0 text-muted-foreground" aria-hidden />
                 <div>
@@ -98,7 +98,7 @@ export default function ContactPage() {
               </div>
             </dl>
 
-            <div className="animate-fade-up [animation-delay:280ms]">
+            <div className="animate-rise [animation-delay:280ms]">
               <p className="eyebrow">What happens next</p>
               <ol className="mt-5 space-y-5">
                 {nextSteps.map((s, i) => (
@@ -114,7 +114,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="animate-fade-up [animation-delay:160ms] lg:col-span-7">
+          <div className="animate-rise [animation-delay:160ms] lg:col-span-7">
             <div className="lg:sticky lg:top-28">
               <EnquiryForm />
             </div>

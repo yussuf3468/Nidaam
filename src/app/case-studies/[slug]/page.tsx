@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowRight, Check, Gauge, Minus } from 'lucide-react';
 import { SampleNotice } from '@/components/case-studies/sample-notice';
-import { MockScreen } from '@/components/graphics/mock-screen';
+import { MockImage } from '@/components/graphics/mock-image';
 import { Reveal } from '@/components/motion/reveal';
 import { CtaBand } from '@/components/sections/cta-band';
 import { Breadcrumbs } from '@/components/sections/page-hero';
@@ -93,7 +93,7 @@ export default async function CaseStudyPage({ params }: Props) {
           </div>
 
           <div className="mt-10 overflow-hidden rounded-3xl border border-border bg-card/60 px-4 pt-8 sm:px-10 sm:pt-12 lg:px-20 lg:pt-14">
-            <MockScreen variant={study.visual} className="mx-auto max-w-5xl" />
+            <MockImage variant={study.visual} priority className="mx-auto max-w-5xl" sizes="(min-width: 1024px) 1024px, 100vw" />
           </div>
         </div>
       </section>

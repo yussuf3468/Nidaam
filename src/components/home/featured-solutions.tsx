@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowUpRight, Check } from 'lucide-react';
-import { MockScreen } from '@/components/graphics/mock-screen';
+import { MockImage } from '@/components/graphics/mock-image';
 import { RevealGroup, RevealItem } from '@/components/motion/reveal';
 import { Section, SectionHeading } from '@/components/sections/section';
 import { Button, ButtonArrow } from '@/components/ui/button';
@@ -36,7 +36,7 @@ export function FeaturedSolutions({ showLink = true }: { showLink?: boolean }) {
                 {/* Fixed-height picture area, so every card's text starts at the same line. */}
                 <div className="bg-dots relative h-56 overflow-hidden border-b border-border bg-background/60 px-6 pt-8 sm:h-72 sm:px-10 sm:pt-10 xl:h-80">
                   <div className="translate-y-2 transition-transform duration-700 ease-out-expo group-hover:translate-y-0">
-                    <MockScreen variant={solution.visual} className="mx-auto max-w-155" />
+                    <MockImage variant={solution.visual} className="mx-auto max-w-155" />
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col p-6 sm:p-8">

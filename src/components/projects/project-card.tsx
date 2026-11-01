@@ -14,7 +14,8 @@ export function ProjectCard({ project, priority = false }: { project: Project; p
           fill
           sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
           className="object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-[1.02]"
-          priority={priority}
+          preload={priority}
+          loading={priority ? 'eager' : 'lazy'}
         />
       </div>
       <div className="flex flex-1 flex-col p-6">

@@ -49,25 +49,25 @@ export function PageHero({ crumbs, eyebrow, title, description, actions, aside, 
   return (
     <section className="relative overflow-hidden pt-24 pb-12 sm:pt-28 lg:pb-16">
       <div className="container-site">
-        <div className="animate-fade-up">
+        <div className="animate-rise">
           <Breadcrumbs items={crumbs} />
         </div>
         <div className={aside ? 'mt-8 grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-10' : 'mt-8'}>
           <div className={aside ? 'lg:col-span-7' : 'max-w-5xl'}>
-            <div className="animate-fade-up [animation-delay:60ms]">
+            <div className="animate-rise [animation-delay:60ms]">
               <Eyebrow>{eyebrow}</Eyebrow>
             </div>
-            <h1 className="mt-3 animate-fade-up text-[clamp(2.125rem,3.3vw,3.375rem)] leading-[1.08] font-bold tracking-[-0.035em] text-balance [animation-delay:120ms]">
+            <h1 className="mt-3 animate-rise text-[clamp(2.125rem,3.3vw,3.375rem)] leading-[1.08] font-bold tracking-[-0.035em] text-balance [animation-delay:120ms]">
               {title}
             </h1>
             {description && (
-              <p className="mt-5 max-w-2xl animate-fade-up text-base leading-relaxed text-pretty text-muted-foreground [animation-delay:200ms] sm:text-lg">
+              <p className="mt-5 max-w-2xl animate-rise text-base leading-relaxed text-pretty text-muted-foreground [animation-delay:200ms] sm:text-lg">
                 {description}
               </p>
             )}
-            {actions && <div className="mt-8 flex animate-fade-up flex-wrap gap-3 [animation-delay:280ms]">{actions}</div>}
+            {actions && <div className="mt-8 flex animate-rise flex-wrap gap-3 [animation-delay:280ms]">{actions}</div>}
           </div>
-          {aside && <div className="animate-fade-up [animation-delay:300ms] lg:col-span-5">{aside}</div>}
+          {aside && <div className="animate-rise [animation-delay:300ms] lg:col-span-5">{aside}</div>}
         </div>
         {children}
       </div>

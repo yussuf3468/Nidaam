@@ -82,7 +82,7 @@ function Kpi({ label, value, note, tone = 'neutral' }: { label: string; value: s
       <p
         className={cn(
           'mt-[0.2em] font-mono text-[0.7em]',
-          tone === 'up' ? 'text-success' : tone === 'warn' ? 'text-warning' : 'text-muted-foreground',
+          tone === 'up' ? 'text-success-ink' : tone === 'warn' ? 'text-warning-ink' : 'text-muted-foreground',
         )}
       >
         {note}
@@ -122,8 +122,8 @@ function Status({ tone, children }: { tone: 'ok' | 'wait' | 'info'; children: Re
     <span
       className={cn(
         'rounded-full px-[0.6em] py-[0.15em] font-mono text-[0.68em]',
-        tone === 'ok' && 'bg-success/12 text-success',
-        tone === 'wait' && 'bg-warning/15 text-warning',
+        tone === 'ok' && 'bg-success/12 text-success-ink',
+        tone === 'wait' && 'bg-warning/15 text-warning-ink',
         tone === 'info' && 'bg-brand/12 text-brand-ink',
       )}
     >

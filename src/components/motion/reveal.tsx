@@ -1,75 +1,50 @@
-'use client';
+import type { CSSProperties, ReactNode } from 'react';
 
-import type { ReactNode } from 'react';
-import { m, type Variants } from 'motion/react';
-
-const EASE = [0.22, 1, 0.36, 1] as const;
-const VIEWPORT = { once: true, margin: '0px 0px -10% 0px' } as const;
+/*
+ * Scroll reveals in plain CSS (see `[data-reveal]` in globals.css). These are server
+ * components: one small observer (<RevealObserver>) adds `is-visible` as elements enter
+ * the viewport, so dozens of reveals cost almost no JavaScript. Without JavaScript,
+ * content is simply shown.
+ */
 
 type RevealProps = {
   children: ReactNode;
   className?: string;
+  /** Delay in seconds. */
   delay?: number;
-  y?: number;
 };
 
 /** Fades and lifts its content in the first time it scrolls into view. */
-export function Reveal({ children, className, delay = 0, y = 20 }: RevealProps) {
+export function Reveal({ children, className, delay = 0 }: RevealProps) {
   return (
-    <m.div
-      className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={VIEWPORT}
-      transition={{ duration: 0.9, ease: EASE, delay }}
-    >
+    <div data-reveal="" className={className} style={delay ? ({ '--reveal-delay': `${delay}s` } as CSSProperties) : undefined}>
       {children}
-    </m.div>
+    </div>
   );
 }
-
-const group: Variants = {
-  hidden: {},
-  show: (stagger: number = 0.07) => ({ transition: { staggerChildren: stagger } }),
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
-};
 
 /** Staggers the reveal of its <RevealItem> children. */
 export function RevealGroup({
   children,
   className,
   stagger = 0.07,
-  as = 'div',
+  as: Comp = 'div',
 }: {
   children: ReactNode;
   className?: string;
   stagger?: number;
   as?: 'div' | 'ul' | 'ol';
 }) {
-  const Comp = as === 'ul' ? m.ul : as === 'ol' ? m.ol : m.div;
   return (
-    <Comp className={className} variants={group} custom={stagger} initial="hidden" whileInView="show" viewport={VIEWPORT}>
+    <Comp data-reveal-group="" className={className} style={{ '--reveal-stagger': `${stagger}s` } as CSSProperties}>
       {children}
     </Comp>
   );
 }
 
-export function RevealItem({
-  children,
-  className,
-  as = 'div',
-}: {
-  children: ReactNode;
-  className?: string;
-  as?: 'div' | 'li' | 'article';
-}) {
-  const Comp = as === 'li' ? m.li : as === 'article' ? m.article : m.div;
+export function RevealItem({ children, className, as: Comp = 'div' }: { children: ReactNode; className?: string; as?: 'div' | 'li' | 'article' }) {
   return (
-    <Comp className={className} variants={item}>
+    <Comp data-reveal-item="" className={className}>
       {children}
     </Comp>
   );

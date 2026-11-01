@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { MockScreen } from '@/components/graphics/mock-screen';
+import { MockImage } from '@/components/graphics/mock-image';
 import { ExampleLabel } from '@/components/ui/badge';
 import type { CaseStudy } from '@/content/case-studies';
 import { getIndustry } from '@/content/industries';
@@ -14,7 +14,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
     >
       {/* Fixed-height picture so cards in a row line up. */}
       <div className="h-52 overflow-hidden border-b border-border bg-background/70 px-6 pt-6 sm:h-56">
-        <MockScreen variant={study.visual} />
+        <MockImage variant={study.visual} sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw" />
       </div>
       <div className="flex flex-1 flex-col p-6">
         <div className="flex flex-wrap items-center gap-2">

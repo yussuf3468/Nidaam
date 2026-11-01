@@ -4,7 +4,8 @@ import { cn } from '@/lib/utils';
 
 export function Section({ className, children, ...props }: ComponentProps<'section'>) {
   return (
-    <section className={cn('py-16 sm:py-20 lg:py-24', className)} {...props}>
+    // content-visibility lets the browser skip layout and paint for sections far below the fold.
+    <section className={cn('py-16 [content-visibility:auto] [contain-intrinsic-size:auto_900px] sm:py-20 lg:py-24', className)} {...props}>
       {children}
     </section>
   );

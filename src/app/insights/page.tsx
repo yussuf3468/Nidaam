@@ -35,7 +35,7 @@ export default async function InsightsPage() {
         title="Practical thinking on software and operations."
         description="Plain-language writing on building, buying and running software: what works, what does not, and how to decide."
       >
-        <div className="mt-12 animate-fade-up [animation-delay:320ms]">
+        <div className="mt-12 animate-rise [animation-delay:320ms]">
           <CategoryNav categories={categories} />
         </div>
       </PageHero>
