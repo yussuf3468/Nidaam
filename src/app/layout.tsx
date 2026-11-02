@@ -21,6 +21,16 @@ export const metadata: Metadata = {
   title: { default: site.name, template: `%s | ${site.name}` },
   description: site.description,
   applicationName: site.name,
+  // Icons are static files in /public with fixed addresses. Google asks for a stable
+  // favicon URL; file-based icons in /app get a new ?hash on every build.
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon-96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
   publisher: site.name,
