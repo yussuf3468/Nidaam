@@ -73,13 +73,13 @@ export const mainNav: NavItem[] = [
   { label: 'Projects', href: '/case-studies' },
   { label: 'About', href: '/about' },
   { label: 'Insights', href: '/insights' },
+  // A plain "Contact" link (not only the "Start a project" button) helps Google
+  // recognise the contact page as a main section for sitelinks.
+  { label: 'Contact', href: '/contact' },
 ];
 
 /** Extra links shown only in the phone menu. */
-export const secondaryNav: NavItem[] = [
-  { label: 'Careers', href: '/careers' },
-  { label: 'Contact', href: '/contact' },
-];
+export const secondaryNav: NavItem[] = [{ label: 'Careers', href: '/careers' }];
 
 export const legalNav: NavItem[] = [
   { label: 'Privacy Policy', href: '/privacy' },

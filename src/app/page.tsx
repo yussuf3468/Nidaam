@@ -14,14 +14,20 @@ import { CtaBand } from '@/components/sections/cta-band';
 import { FaqSection } from '@/components/sections/faq-section';
 import { JsonLd } from '@/components/seo/json-ld';
 import { homeFaqs } from '@/content/company';
-import { site } from '@/content/site';
-import { webPageSchema, websiteSchema } from '@/lib/schema';
+import { mainNav, site } from '@/content/site';
+import { siteNavigationSchema, webPageSchema, websiteSchema } from '@/lib/schema';
 
 export default function HomePage() {
   return (
     <>
       {/* WebSite data on the home page tells Google the site name to show in results. */}
-      <JsonLd data={[websiteSchema(), webPageSchema({ name: site.name, description: site.description, path: '/' })]} />
+      <JsonLd
+        data={[
+          websiteSchema(),
+          webPageSchema({ name: site.name, description: site.description, path: '/' }),
+          siteNavigationSchema([...mainNav.map((n) => (n.href === '/about' ? { ...n, label: 'About us' } : n)), { label: 'Careers', href: '/careers' }]),
+        ]}
+      />
       <Hero />
       <BuiltFor />
       <ServicesOverview />

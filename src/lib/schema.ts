@@ -105,6 +105,21 @@ export function organizationSchema() {
   };
 }
 
+/** The site's main sections, described for search engines (sitelink candidates). */
+export function siteNavigationSchema(items: { label: string; href: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${site.name} main sections`,
+    itemListElement: items.map((item, i) => ({
+      '@type': 'SiteNavigationElement',
+      position: i + 1,
+      name: item.label,
+      url: absoluteUrl(item.href),
+    })),
+  };
+}
+
 export function websiteSchema() {
   return {
     '@context': 'https://schema.org',
