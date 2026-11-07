@@ -18,6 +18,18 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+    {
+    slug: 'manasik-travel-agency-platform',
+    name: 'Manasik',
+    client: 'Travel agencies',
+    sector: 'Travel · SaaS',
+    summary: 'The operating system for travel agencies: one internal tool to manage clients, bookings, sales and payments, with a daily list of what needs doing.',
+    built: ['Clients and bookings for families and groups', 'Tickets, visas and services', 'Quotations, invoices, receipts and payments', 'Daily to-do list with morning push notifications'],
+    tech: ['Next.js', 'Supabase', 'PostgreSQL'],
+    url: 'https://manasik.lenzro.com',
+    image: '/projects/manasik.webp',
+    imageAlt: 'Manasik workspace home page showing stat cards for clients, departures, income and money owed, above a list of what needs doing today',
+  },
   {
     slug: 'car-hire-platform',
     name: 'Car Hire',
