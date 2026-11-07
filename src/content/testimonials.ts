@@ -8,7 +8,7 @@ export type Testimonial = { quote: string; name: string; role: string; organisat
 export const testimonials: Testimonial[] = [
   {
   quote:
-    'Manasik has completely transformed how we manage our travel operations. From handling bookings and customer records to organizing payments and internal workflows, everything is now faster, more accurate, and much easier to manage. The Nidaam Solutions team understood our business requirements, delivered a reliable system, and has continued to provide excellent support whenever we need it. Manasik has become an essential part of our daily operations, and we highly recommend Nidaam Solutions to any business looking for a professional software partner.',
+    'The Nidaam Solutions team understood our business requirements, delivered a reliable system, and has continued to provide excellent support whenever we need it. Manasik has become an essential part of our daily operations, and we highly recommend Nidaam Solutions to any business looking for a professional software partner.',
   name: 'Mohamed Hassan',
   role: 'Operations Manager',
   organisation: 'Tokio Travel Solutions',
