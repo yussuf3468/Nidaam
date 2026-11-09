@@ -48,7 +48,7 @@ export const projects: Project[] = [
     'Capacitor'
   ],
 
-  url: 'https://pos.nidaam.co.ke',
+  url: 'https://ecommerce.nidaam.co.ke/',
 
   image: '/projects/pos.png',
 
