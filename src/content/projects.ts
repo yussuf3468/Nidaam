@@ -18,6 +18,78 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+  slug: 'nidaam-pos',
+  name: 'NidaamPOS',
+  client: 'Retail Stores & Supermarkets',
+  sector: 'Retail Technology · SaaS',
+
+  summary:
+    'A complete point-of-sale and business management platform that combines POS, inventory, online storefronts, finance, orders and reporting into one cloud-based system. Each deployment is fully customized for the customer\'s brand, products and business workflows.',
+
+  built: [
+    'Fast point-of-sale with receipts, discounts, M-Pesa, cash and card payments',
+    'Inventory management with stock receiving, low-stock alerts and audit history',
+    'Custom online storefront with shopping cart, checkout and order tracking',
+    'Finance suite including expenses, debts, customer credit and investments',
+    'Business analytics with sales dashboards, PDF reports and CSV exports',
+    'Staff accounts with secure authentication and activity tracking',
+    'Subscription-based SaaS deployments with customer-specific branding and databases',
+    'Offline-ready Progressive Web App with Android support'
+  ],
+
+  tech: [
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'Supabase',
+    'PostgreSQL',
+    'Vite',
+    'Capacitor'
+  ],
+
+  url: 'https://pos.nidaam.co.ke',
+
+  image: '/projects/pos.png',
+
+  imageAlt:
+    'NidaamPOS dashboard displaying sales analytics, inventory management, point-of-sale interface, financial reports and online storefront management in a premium modern workspace.',
+},
+  {
+  slug: 'nidaam-cms',
+  name: 'Nidaam CMS',
+  client: 'Businesses & SMEs',
+  sector: 'Business Management · SaaS',
+  summary:
+    'A premium client management platform built for modern businesses to manage customers, payments, transactions and reports with a beautiful mobile-first experience and dual-currency support.',
+
+  built: [
+    'Complete client management with smart client profiles and auto-generated IDs',
+    'Dual-currency accounting with separate KES and USD transaction management',
+    'Professional PDF reports, analytics dashboards and business insights',
+    'Income, expenses, debts, rent and budget tracking',
+    'Real-time dashboards with monthly performance statistics',
+    'Secure authentication with role-based access and Row Level Security',
+    'Responsive mobile-first interface with premium UX and smooth animations',
+    'Cloud synchronization across all devices using Supabase'
+  ],
+
+  tech: [
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'Supabase',
+    'PostgreSQL',
+    'Vite'
+  ],
+
+  url: 'https://cms.nidaam.co.ke',
+
+  image: '/projects/nidaam.png',
+
+  imageAlt:
+    'Nidaam CMS dashboard displaying client analytics, revenue cards, recent transactions, dual-currency financial summaries and business reports in a premium emerald-themed interface.',
+},
     {
     slug: 'manasik-travel-agency-platform',
     name: 'Manasik',
