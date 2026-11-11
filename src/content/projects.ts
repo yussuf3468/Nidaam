@@ -55,6 +55,30 @@ export const projects: Project[] = [
   imageAlt:
     'NidaamPOS dashboard displaying sales analytics, inventory management, point-of-sale interface, financial reports and online storefront management in a premium modern workspace.',
 },
+{
+  slug: 'vehicle-rental-platform',
+  name: 'Socdal',
+  client: 'Vehicle rental businesses',
+  sector: 'Vehicle Rental Management · SaaS',
+  summary:
+    'Socdal is our vehicle rental management platform built for modern rental businesses. It replaces notebooks, spreadsheets and WhatsApp conversations with a single workspace for managing fleets, reservations, rental agreements, customers, payments and day-to-day operations. Whether managing a small rental company or a multi-branch fleet, Socdal helps businesses operate more efficiently from any device.',
+  built: [
+    'Real-time fleet availability and vehicle status',
+    'Rental reservations, check-outs, check-ins and extensions',
+    'Professional rental agreements and printable contracts',
+    'Customer profiles with ID verification and rental history',
+    'Payments, invoices, balances, expenses and revenue analytics',
+    'Staff roles, permissions, activity logs and scheduling',
+    'Incident reporting, complaints and maintenance tracking',
+    'Installable mobile app with push notifications',
+    'Secure multi-branch workspaces with centralized management',
+  ],
+  tech: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'PWA'],
+  url: 'https://socdal.nidaam.co.ke',
+  image: '/projects/car-hire.webp',
+  imageAlt:
+    'Socdal dashboard displaying fleet availability, rental analytics, revenue, unpaid balances and vehicle management tools',
+},
   {
   slug: 'nidaam-cms',
   name: 'Nidaam CMS',
@@ -101,18 +125,6 @@ export const projects: Project[] = [
     url: 'https://manasik.lenzro.com',
     image: '/projects/manasik.png',
     imageAlt: 'Manasik workspace home page showing stat cards for clients, departures, income and money owed, above a list of what needs doing today',
-  },
-  {
-    slug: 'car-hire-platform',
-    name: 'Car Hire',
-    client: 'Car rental businesses',
-    sector: 'Car rental · SaaS',
-    summary: 'An all-in-one platform for car rental businesses: one dashboard to manage the fleet, bookings and payments, built for solo operators through to full fleets.',
-    built: ['Fleet and vehicle status', 'Rentals and clients', 'Payments, balances and expenses', 'Staff, complaints and calendar'],
-    tech: ['Next.js', 'Supabase'],
-    url: 'https://car-hire-two.vercel.app',
-    image: '/projects/car-hire.webp',
-    imageAlt: 'Car Hire dashboard showing fleet status, revenue collected this month, unpaid balances and a rental payments chart',
   },
   {
     slug: 'islii-barista-school',
