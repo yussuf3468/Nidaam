@@ -7,6 +7,7 @@ import { ManagedServices } from '@/components/home/managed-services';
 import { PricingApproach } from '@/components/home/pricing-approach';
 import { Process } from '@/components/home/process';
 import { ServicesOverview } from '@/components/home/services-overview';
+import { StoryFilm } from '@/components/home/story-film';
 import { TechStack } from '@/components/home/tech-stack';
 import { Testimonials } from '@/components/home/testimonials';
 import { WhyNidaam } from '@/components/home/why-nidaam';
@@ -30,6 +31,7 @@ export default function HomePage() {
       />
       <Hero />
       <BuiltFor />
+      <StoryFilm />
       <ServicesOverview />
       <Industries />
       <WhyNidaam />

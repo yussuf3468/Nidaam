@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nidaam story film</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Outfit:wght@300;400;500&family=Caveat:wght@500;600&display=block" rel="stylesheet">
+<style>
+:root{--bg:#F4F2EE;--card:#fff;--ink:#111;--muted:#6B6964;--line:#E4E1DB;--blue:#00AEFF;--blue-ink:#0077B3;--blue-soft:#E3F5FF;--red:#D8452F;--red-soft:#FCE9E5;--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg)}
+body{font-family:'Outfit',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+h1,h2,h3,.eyebrow,.mono{font-family:'Manrope',sans-serif}
+.scene{position:absolute;inset:0;padding:130px 140px 110px;display:flex;flex-direction:column;justify-content:center;opacity:0;
+  animation:sIn .5s ease var(--s) both,sOut .45s ease calc(var(--s) + var(--d) - .45s) forwards}
+.scene.last{animation:sIn .5s ease var(--s) both}
+@keyframes sIn{from{opacity:0}to{opacity:1}}
+@keyframes sOut{from{opacity:1}to{opacity:0}}
+.a{animation:up .9s var(--ease) calc(var(--s) + var(--o,0s)) both}
+@keyframes up{from{opacity:0;transform:translateY(44px)}to{opacity:1;transform:none}}
+.f{animation:sIn .8s ease calc(var(--s) + var(--o,0s)) both}
+.pop{animation:pop .85s var(--ease) calc(var(--s) + var(--o,0s)) both}
+@keyframes pop{from{opacity:0;transform:scale(.9) translateY(36px)}to{opacity:1;transform:none}}
+.bug{position:absolute;top:54px;left:140px;right:140px;z-index:5;display:flex;align-items:center;justify-content:space-between;opacity:0;
+  animation:sIn .5s ease var(--bin) both,sOut .4s ease var(--bout) forwards}
+.bug img{height:44px}
+.bug span{font:600 24px 'Manrope';color:var(--muted)}
+.progress{position:absolute;left:0;bottom:0;height:6px;background:var(--blue);z-index:6;animation:prog var(--total) linear 0s both}
+@keyframes prog{from{width:0}to{width:100%}}
+.eyebrow{font-weight:700;font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-ink);margin-bottom:24px}
+h1{font-weight:800;font-size:118px;letter-spacing:-.035em;line-height:1.04}
+h2{font-weight:800;font-size:80px;letter-spacing:-.03em;line-height:1.08}
+.blue{color:var(--blue)}
+.muted{color:var(--muted)}
+
+/* ---- chaos ---- */
+.mess{display:flex;gap:34px;margin-top:64px;align-items:flex-start}
+.tilt{flex:1}
+.tilt:nth-child(1){transform:rotate(-3deg) translateY(10px)}
+.tilt:nth-child(2){transform:rotate(2.2deg) translateY(-16px)}
+.tilt:nth-child(3){transform:rotate(-1.6deg) translateY(22px)}
+.tilt:nth-child(4){transform:rotate(3deg) translateY(-6px)}
+.obj{height:470px;border-radius:22px;background:#fff;box-shadow:0 30px 60px -34px rgba(17,17,17,.4),0 0 0 1px rgba(17,17,17,.06);overflow:hidden;display:flex;flex-direction:column}
+.obj .cap{font:700 20px 'Manrope';letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:22px 26px 14px}
+.note{background:#FFFBEA;background-image:repeating-linear-gradient(#FFFBEA 0 63px,#D9E3F0 63px 65px);background-position:0 78px;position:relative}
+.note::before{content:'';position:absolute;top:0;bottom:0;left:64px;width:2px;background:#F2B8AE}
+.note p{font:600 46px/65px 'Caveat';color:#23314F;padding-left:86px;white-space:nowrap}
+.note p:first-of-type{margin-top:12px}
+.note s{color:#9aa3b5}
+.sheet .bar{background:#EDF3EE;font:600 19px 'Manrope';color:#3D5A45;padding:14px 20px;white-space:nowrap}
+.sheet .gridx{flex:1;display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-auto-rows:1fr;border-top:1px solid var(--line)}
+.sheet .gridx span{border-right:1px solid var(--line);border-bottom:1px solid var(--line);font:400 19px 'Outfit';color:#444;display:flex;align-items:center;padding:0 12px;white-space:nowrap;overflow:hidden}
+.sheet .gridx span.h{background:#F7F6F3;font-weight:500;color:var(--muted)}
+.sheet .gridx span.e{background:var(--red-soft);color:var(--red);font-weight:500}
+.sheet .foot{font:400 20px 'Outfit';color:var(--red);padding:14px 20px;background:#fff}
+.chat{background:#F0EDE6}
+.chat .cap{background:#fff;display:flex;justify-content:space-between;align-items:center}
+.chat .cap b{background:var(--red);color:#fff;border-radius:999px;padding:3px 12px;font-size:17px;letter-spacing:0}
+.chat .msgs{padding:20px 18px;display:flex;flex-direction:column;gap:13px}
+.chat .m{max-width:84%;padding:13px 18px;border-radius:18px;font:400 22px/1.25 'Outfit';background:#fff;align-self:flex-start;border-bottom-left-radius:5px}
+.chat .m.me{align-self:flex-end;background:#D8F3DC;border-radius:18px;border-bottom-right-radius:5px}
+.month .rowx{display:flex;justify-content:space-between;align-items:baseline;padding:20px 26px;border-top:1px solid var(--line);font:400 25px 'Outfit';color:var(--muted)}
+.month .rowx b{font:700 31px 'Manrope';color:var(--ink);font-variant-numeric:tabular-nums}
+.month .bad{margin:auto 22px 24px;background:var(--red-soft);border-radius:16px;padding:22px 24px;color:var(--red)}
+.month .bad small{display:block;font:500 21px 'Outfit'}
+.month .bad b{font:800 44px 'Manrope';font-variant-numeric:tabular-nums}
+
+/* ---- gap ---- */
+.chain{display:flex;align-items:center;margin-top:90px}
+.node{flex:none;background:#fff;border-radius:20px;padding:26px 34px;font:700 31px 'Manrope';letter-spacing:-.01em;white-space:nowrap}
+.conn{flex:1;height:44px;position:relative}
+.conn::before{content:'';position:absolute;left:8px;right:8px;top:20px;border-top:4px dashed #C9C5BC}
+.conn i{position:absolute;left:8px;right:8px;top:20px;height:4px;background:var(--blue);transform-origin:left;transform:scaleX(0);animation:grow .7s var(--ease) calc(var(--s) + var(--o)) both}
+@keyframes grow{to{transform:scaleX(1)}}
+.conn b{position:absolute;left:50%;top:0;width:44px;height:44px;margin-left:-22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 24px 'Manrope'}
+.conn b.x{background:var(--red-soft);color:var(--red);animation:sOut .3s ease calc(var(--s) + var(--o)) forwards}
+.conn b.ok{background:var(--blue);color:#fff;opacity:0;animation:pop .6s var(--ease) calc(var(--s) + var(--o) + .25s) both}
+.fixline{margin-top:70px;font:700 40px 'Manrope';letter-spacing:-.02em}
+
+/* ---- intro ---- */
+.s-intro{align-items:center;text-align:center}
+.s-intro .logo{height:170px;animation:reveal 1.5s var(--ease) calc(var(--s) + var(--o)) both}
+@keyframes reveal{from{clip-path:inset(0 100% 0 0);transform:translateX(-30px)}to{clip-path:inset(0 0 0 0);transform:none}}
+.s-intro .where{font:400 34px 'Outfit';color:var(--muted);margin-top:36px}
+.steps{display:flex;gap:26px;margin-top:84px;width:100%}
+.step{flex:1;background:#fff;border-radius:26px;padding:36px 38px;text-align:left}
+.step .n{font:700 20px 'Manrope';color:var(--blue-ink);background:var(--blue-soft);border-radius:999px;padding:6px 16px;display:inline-block}
+.step h3{font-weight:800;font-size:52px;letter-spacing:-.03em;margin:20px 0 8px}
+.step p{font-size:27px;color:var(--muted);font-weight:300}
+
+/* ---- one ---- */
+.s-one{flex-direction:row;align-items:center;justify-content:space-between;gap:80px}
+.s-one .txt{width:620px;flex:none}
+.dash{flex:1;background:#fff;border-radius:30px;padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:20px;box-shadow:0 40px 90px -46px rgba(17,17,17,.35)}
+.mod{background:var(--bg);border-radius:20px;padding:26px 28px;height:270px;display:flex;flex-direction:column}
+.mod h3{font-weight:700;font-size:30px;letter-spacing:-.02em;display:flex;align-items:center;gap:12px}
+.mod h3::before{content:'';width:12px;height:12px;border-radius:50%;background:var(--blue)}
+.bars{flex:1;display:flex;align-items:flex-end;gap:14px;padding-top:20px}
+.bars i{flex:1;background:var(--blue);border-radius:8px 8px 0 0;opacity:.85}
+.lines{flex:1;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.lines i{display:block;height:18px;border-radius:9px;background:#DDD9D1;position:relative;overflow:hidden}
+.lines i::after{content:'';position:absolute;left:0;top:0;bottom:0;width:var(--w);background:var(--blue);border-radius:9px}
+.cash{flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.cash i{display:flex;align-items:center;gap:14px;font:normal 500 24px 'Outfit';color:var(--muted)}
+.cash i::before{content:'✓';width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font:800 18px 'Manrope'}
+.ppl{flex:1;display:flex;align-items:center}
+.ppl i{width:76px;height:76px;border-radius:50%;border:5px solid var(--bg);margin-right:-16px;display:flex;align-items:center;justify-content:center;font:normal 700 26px 'Manrope';color:#fff}
+
+/* ---- work ---- */
+.s-work{flex-direction:row;align-items:center;justify-content:space-between;gap:70px}
+.shot{width:1040px;flex:none;background:#fff;border-radius:26px;overflow:hidden;box-shadow:0 40px 90px -40px rgba(17,17,17,.35),0 0 0 1px rgba(17,17,17,.06)}
+.shot .bar{height:54px;display:flex;align-items:center;gap:10px;background:#EFEDE8;padding:0 22px}
+.shot .bar i{width:13px;height:13px;border-radius:50%;background:#D5D1C9}
+.shot .bar b{margin-left:16px;font:500 17px 'Outfit';color:var(--muted);background:#fff;border-radius:999px;padding:5px 18px}
+.shot .view{height:540px;overflow:hidden}
+.shot img{display:block;width:100%;height:100%;object-fit:cover;animation:pan var(--d) ease-in-out var(--s) both}
+@keyframes pan{from{object-position:0% 0%;transform:scale(1)}to{object-position:30% 0%;transform:scale(1.035)}}
+.s-work .txt{flex:1}
+.s-work .count{font:700 22px 'Manrope';color:var(--muted);letter-spacing:.1em;margin-bottom:22px}
+.s-work .count b{color:var(--blue-ink)}
+.s-work .for{font:400 30px 'Outfit';color:var(--muted);margin-bottom:10px}
+.s-work h2{font-size:74px}
+.tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+.tags span{font:600 26px 'Manrope';background:#fff;border-radius:999px;padding:14px 26px;white-space:nowrap}
+
+/* ---- yours ---- */
+.badges{display:flex;gap:26px;margin-top:64px}
+.badge{flex:1;background:#fff;border-radius:28px;padding:44px 42px 46px}
+.badge .big{font:800 96px/1 'Manrope';letter-spacing:-.04em;color:var(--blue)}
+.badge h3{font-weight:700;font-size:38px;letter-spacing:-.02em;margin-top:26px}
+.badge p{font-size:27px;color:var(--muted);font-weight:300;margin-top:8px}
+
+/* ---- outro ---- */
+.s-outro{background:var(--ink);color:#fff;align-items:flex-start}
+.s-outro .logo{height:84px;margin-bottom:70px}
+.s-outro h1{font-size:150px}
+.pills{display:flex;gap:18px;margin-top:64px}
+.pill{font:600 32px 'Manrope';border-radius:999px;background:#1F1F1F;color:#fff;padding:22px 40px;display:flex;gap:14px;align-items:center;white-space:nowrap}
+.pill.pri{background:var(--blue);color:#001A26}
+.pill small{font:400 24px 'Outfit';opacity:.7}
+.addr{color:#8F8C86;font-size:26px;margin-top:40px}
+</style>
+</head>
+<body>
+<script src="story-data.js"></script>
+<script src="story-timing.js"></script>
+<script>
+const LOGO='assets/nidaam-solutions-logo.svg',LOGO_W='assets/nidaam-solutions-logo-white.svg';
+const LEAD=.55,GAP=.34,TAIL=.8;
+const WORK={
+  pos:{img:'assets/pos.png',url:'ecommerce.nidaam.co.ke',forWho:'Retail stores & supermarkets',name:'NidaamPOS',tags:['Point of sale','Inventory','Online storefront','M-Pesa']},
+  socdal:{img:'assets/car-hire.png',url:'socdal.nidaam.co.ke',forWho:'Vehicle rental businesses',name:'Socdal',tags:['Fleet','Reservations','Agreements','Payments']},
+  islii:{img:'assets/islii-barista-school.png',url:'isliibarista.com',forWho:'Education · Nairobi',name:'Islii Barista School',tags:['Courses','Enrolment','Certificates']},
+  gam:{img:'assets/gam-oil.png',url:'Fleet dashboard',forWho:'Logistics · Petroleum distribution',name:'Gam Oil Trading',tags:['Fleet overview','Vehicles','Trips']},
+  anchor:{img:'assets/anchor-point-initiative.png',url:'Community hub',forWho:'Non-profit · Youth',name:'Anchor Point Initiative',tags:['Programmes','Events','Donations']},
+};
+const T=window.STORY_TIMING||null;
+const est=(s)=>Math.max(1.2,s.split(/\s+/).length/2.7);
+let workIdx=0;const workTotal=STORY.filter(c=>c.t==='work').length;
+const o=(x)=>`style="--o:${x.toFixed(2)}s"`;
+const B={
+  chaos:(c)=>{const k=[1,2,3,4].map(j=>c.at[j]-.15);return `
+    <div class="eyebrow a" ${o(.2)}>Monday morning, most businesses</div>
+    <h2 class="a" ${o(.35)}>Sound familiar?</h2>
+    <div class="mess">
+      <div class="tilt"><div class="obj note pop" ${o(k[0])}><div class="cap">Sales book</div><p>Mon &nbsp; 14,200</p><p>Tue &nbsp; 9,850</p><p>Wed &nbsp; <s>11,400</s> ?</p><p>Thu &nbsp; ask Amina</p><p>Fri &nbsp; ...</p></div></div>
+      <div class="tilt"><div class="obj sheet pop" ${o(k[1])}><div class="bar">stock_FINAL_v3 (copy).xlsx</div><div class="gridx">
+        <span class="h">Item</span><span class="h">In</span><span class="h">Left</span>
+        <span>Sugar 2kg</span><span>120</span><span>37</span>
+        <span>Cooking oil</span><span>60</span><span class="e">#REF!</span>
+        <span>Rice 5kg</span><span>80</span><span>??</span>
+        <span>Flour</span><span>200</span><span class="e">-14</span>
+        <span>Soap</span><span>90</span><span>61</span></div><div class="foot">Last edited: Tuesday</div></div></div>
+      <div class="tilt"><div class="obj chat pop" ${o(k[2])}><div class="cap">Approvals group <b>47 unread</b></div><div class="msgs">
+        <div class="m me">Can someone approve this order?</div><div class="m">Which order?</div><div class="m me">The one from last week</div><div class="m">Send it again please</div><div class="m me">...</div></div></div></div>
+      <div class="tilt"><div class="obj month pop" ${o(k[3])}><div class="cap">Month end</div>
+        <div class="rowx"><span>Sales book</span><b>412,300</b></div><div class="rowx"><span>Bank</span><b>398,750</b></div>
+        <div class="bad"><small>Doesn’t match</small><b>− 13,550</b></div></div></div>
+    </div>`;},
+  gap:(c)=>{const fix=c.at[2];const nodes=['Notebook','Spreadsheet','Chat group','Bank statement'];return `
+    <h1 class="a" ${o(c.at[0])}>Hard-working team.</h1>
+    <h1 class="a blue" ${o(c.at[1])}>Disconnected tools.</h1>
+    <div class="chain a" ${o(c.at[1]+.5)}>${nodes.map((n,i)=>`<div class="node">${n}</div>${i<3?`<div class="conn" style="--o:${(fix+.2+i*.3).toFixed(2)}s"><i></i><b class="x">✕</b><b class="ok">✓</b></div>`:''}`).join('')}</div>
+    <p class="fixline f" ${o(fix+1.1)}>Connected. <span class="muted">That’s the job.</span></p>`;},
+  intro:(c)=>{const st=c.at[1],sd=c.du[1];const steps=[['Listen','How your business really runs'],['Design','A system that fits it'],['Build','In stages you can test']];return `
+    <img class="logo" style="--o:${(c.at[0]-.2).toFixed(2)}s" src="${LOGO}">
+    <p class="where f" ${o(c.at[0]+c.du[0]*.55)}>Software company · Eastleigh, Nairobi</p>
+    <div class="steps">${steps.map((s,i)=>`<div class="step pop" ${o(st+[0.08,0.3,0.68][i]*sd)}><span class="n">0${i+1}</span><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('')}</div>`;},
+  one:(c)=>{const a=c.at[0],d=c.du[0];const at=(p)=>o(a+d*p);return `
+    <div class="txt"><div class="eyebrow a" ${o(.2)}>What we build</div><h2 class="a" ${o(.35)}>One system.<br><span class="blue">One source of truth.</span></h2></div>
+    <div class="dash pop" ${o(.5)}>
+      <div class="mod pop" ${at(.2)}><h3>Sales</h3><div class="bars">${[38,55,47,72,64,88,95].map(h=>`<i style="height:${h}%"></i>`).join('')}</div></div>
+      <div class="mod pop" ${at(.42)}><h3>Stock</h3><div class="lines">${[82,54,23,67].map(w=>`<i style="--w:${w}%"></i>`).join('')}</div></div>
+      <div class="mod pop" ${at(.6)}><h3>Finance</h3><div class="cash"><i>Payments matched</i><i>Expenses approved</i><i>Reports ready</i></div></div>
+      <div class="mod pop" ${at(.8)}><h3>People</h3><div class="ppl">${[['A','#00AEFF'],['M','#111'],['F','#0077B3'],['K','#8F8C86'],['+','#C9C5BC']].map(x=>`<i style="background:${x[1]}">${x[0]}</i>`).join('')}</div></div>
+    </div>`;},
+  work:(c)=>{const p=WORK[c.p];workIdx++;const j=c.say.length>1&&workIdx===1?1:0;const nameAt=c.at[j];
+    const tagBase=c.say.length>j+1?c.at[j+1]:c.at[j]+c.du[j]*.5;const tagSpan=c.say.length>j+1?c.du[j+1]*.75:c.du[j]*.4;
+    return `<div class="shot pop" ${o(.25)}><div class="bar"><i></i><i></i><i></i><b>${p.url}</b></div><div class="view"><img src="${p.img}"></div></div>
+    <div class="txt"><div class="count f" ${o(.3)}>OUR WORK · <b>0${workIdx}</b> / 0${workTotal}</div>
+      <p class="for a" ${o(nameAt)}>${p.forWho}</p><h2 class="a" ${o(nameAt+.12)}>${p.name}</h2>
+      <div class="tags">${p.tags.map((t,i)=>`<span class="pop" ${o(tagBase+i*tagSpan/p.tags.length)}>${t}</span>`).join('')}</div></div>`;},
+  yours:(c)=>{const b=[['&lt;/&gt;','Source code','Handed over in a repository you control'],['30','Day warranty','Written, on every project'],['Mon–Fri','Support desk','8:00 to 17:00 EAT, after launch']];return `
+    <div class="eyebrow a" ${o(.2)}>After launch</div><h2 class="a" ${o(c.at[0])}>No lock-in. <span class="blue">No disappearing act.</span></h2>
+    <div class="badges">${b.map((x,i)=>`<div class="badge pop" ${o(c.at[i+1]-.1)}><div class="big">${x[0]}</div><h3>${x[1]}</h3><p>${x[2]}</p></div>`).join('')}</div>`;},
+  outro:(c)=>`<img class="logo f" ${o(.2)} src="${LOGO_W}"><h1 class="a" ${o(c.at[0]+c.du[0]*.55)}>Let’s talk.</h1>
+    <div class="pills"><div class="pill pri a" ${o(c.at[1])}>nidaam.co.ke</div><div class="pill a" ${o(c.at[1]+.25)}><small>WhatsApp</small>+254 722 261 776</div><div class="pill a" ${o(c.at[1]+.5)}>info@nidaam.co.ke</div></div>
+    <p class="addr f" ${o(c.at[1]+1)}>Hodo Souk, Captain Mungai Street, Eastleigh, Nairobi, Kenya</p>`,
+};
+let t=0,html='';const audio=[];
+STORY.forEach((c,i)=>{
+  c.du=c.say.map((s,j)=>T?T[i][j]:est(s));
+  c.at=[];let x=LEAD;c.du.forEach((d,j)=>{c.at[j]=x;audio.push({file:`story-vo/${i}-${j}.wav`,start:+(t+x).toFixed(3)});x+=d+GAP;});
+  c.d=+(x-GAP+TAIL+(i===STORY.length-1?1.6:0)).toFixed(2);c._s=t;
+  const last=i===STORY.length-1;
+  html+=`<section class="scene s-${c.t} ${last?'last':''}" style="--s:${t.toFixed(2)}s;--d:${c.d}s">${B[c.t](c)}</section>`;
+  t+=c.d;
+});
+const total=+t.toFixed(2),introS=STORY.find(c=>c.t==='intro'),lastS=STORY[STORY.length-1];
+html+=`<div class="bug" style="--bin:${(introS._s+introS.d-.1).toFixed(2)}s;--bout:${(lastS._s-.4).toFixed(2)}s"><img src="${LOGO}"><span>nidaam.co.ke</span></div>`;
+html+=`<div class="progress" style="--total:${total}s"></div>`;
+document.body.insertAdjacentHTML('beforeend',html);
+window.META={total,audio,starts:STORY.map(c=>c._s)};
+window.seek=(sec)=>{for(const an of document.getAnimations()){an.pause();an.currentTime=sec*1000;}};
+window.ready=Promise.all([document.fonts.ready,...[...document.images].map(im=>im.decode().catch(()=>{}))]).then(()=>{window.seek(0);return true;});
+</script>
+</body>
+</html>
