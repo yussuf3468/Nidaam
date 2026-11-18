@@ -5,15 +5,16 @@ import { site } from '@/content/site';
 import { absoluteUrl } from '@/lib/seo';
 
 const film = {
-  name: 'Nidaam Solutions: from scattered tools to one system',
+  name: 'Nidaam Solutions: get your evenings back',
   description:
-    'A short film from Nidaam Solutions on the bottlenecks growing businesses run into, how we work, and what we have built for clients in retail, vehicle rental, education, logistics and the non-profit sector.',
-  src: '/videos/nidaam-story.mp4',
-  poster: '/videos/nidaam-story-poster.jpg',
-  captions: '/videos/nidaam-story.en.vtt',
-  uploadDate: '2026-11-12',
-  /** 1 minute 41 seconds. */
-  duration: 'PT1M41S',
+    'A short film from Nidaam Solutions: the chaos growing businesses run into, the systems we build, the products running real businesses today in retail, travel, logistics, education, healthcare and the non-profit sector, and how we work.',
+  // A new name for a new film, so no browser or CDN keeps serving the old one.
+  src: '/videos/nidaam-film.mp4',
+  poster: '/videos/nidaam-film-poster.jpg',
+  captions: '/videos/nidaam-film.en.vtt',
+  uploadDate: '2026-11-18',
+  /** 1 minute 13 seconds. */
+  duration: 'PT1M13S',
 };
 
 /** Home page film: the problems we see, who we are and the work we have delivered. */
